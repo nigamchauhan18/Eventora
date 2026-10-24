@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -10,3 +11,11 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
+# Eventora
+🎉 Eventora — Event Planning & Management System
+
+Tagline: Plan Events. Create Memories. Celebrate Success.
+
+Eventora is a modern event planning and management web application built with React.js. It helps users create events, manage bookings, organize schedules, track budgets, and coordinate event activities through a single dashboard.
+>>>>>>> 54285ae39d4b7bdd26a0de402e34f9101d8b835e
