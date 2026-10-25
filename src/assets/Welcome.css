@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
     --eventora-primary: #7952e8;
@@ -8,6 +8,7 @@
     --eventora-muted: #77758b;
     --eventora-border: #efecf6;
     --eventora-bg: #fcfbff;
+    --eventora-navbar-height: 77px;
 }
 
 * {
@@ -16,17 +17,18 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--eventora-navbar-height);
 }
 
 body {
     margin: 0;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     color: var(--eventora-text);
 }
 
 .eventora-welcome {
     min-height: 100vh;
-    overflow: hidden;
+    overflow: clip;
     background: #ffffff;
 }
 
@@ -37,14 +39,23 @@ body {
 .eventora-navbar {
     position: fixed;
     top: 0;
+    right: 0;
     left: 0;
-    width: 100%;
     z-index: 1050;
-    padding: 14px 0;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(121, 80, 232, 0.1);
-    box-shadow: 0 4px 20px rgba(41, 32, 68, 0.05);
+    width: 100%;
+    min-height: var(--eventora-navbar-height);
+    padding: 15px 0;
+    border-bottom: 1px solid #f0edf7;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 4px 20px rgba(36, 33, 57, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.eventora-navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .eventora-brand {
@@ -52,14 +63,15 @@ body {
     align-items: center;
     gap: 10px;
     margin: 0;
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: 25px;
     font-weight: 800;
     letter-spacing: -1px;
     color: var(--eventora-text);
 }
 
-.eventora-brand:hover {
+.eventora-brand:hover,
+.eventora-brand:focus {
     color: var(--eventora-text);
 }
 
@@ -82,7 +94,7 @@ body {
 
 .eventora-login-btn {
     padding: 10px 20px;
-    color: white;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 700;
     border: 1px solid var(--eventora-primary);
@@ -92,8 +104,9 @@ body {
 }
 
 .eventora-login-btn:hover,
-.eventora-login-btn:focus {
-    color: white;
+.eventora-login-btn:focus,
+.eventora-login-btn:active {
+    color: #ffffff;
     border-color: var(--eventora-primary-dark);
     background: var(--eventora-primary-dark);
     box-shadow: 0 6px 16px rgba(121, 82, 232, 0.18);
@@ -117,7 +130,8 @@ body {
     border-radius: 10px;
 }
 
-.eventora-dropdown .dropdown-item:hover {
+.eventora-dropdown .dropdown-item:hover,
+.eventora-dropdown .dropdown-item:focus {
     background: #f7f4ff;
 }
 
@@ -196,6 +210,14 @@ body {
     height: 260px;
 }
 
+.hero-circle-two {
+    right: 15%;
+    bottom: -120px;
+    width: 280px;
+    height: 280px;
+    background: rgba(236, 72, 153, 0.035);
+}
+
 .hero-content {
     padding-right: 25px;
 }
@@ -225,7 +247,7 @@ body {
 
 .hero-content h1 {
     margin-bottom: 23px;
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: clamp(43px, 5vw, 65px);
     font-weight: 800;
     line-height: 1.12;
@@ -236,6 +258,18 @@ body {
 .hero-content h1 span {
     position: relative;
     color: var(--eventora-primary);
+}
+
+.hero-content h1 span::after {
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    left: 0;
+    height: 5px;
+    content: "";
+    border-radius: 50%;
+    background: #d9ccff;
+    transform: rotate(-2deg);
 }
 
 .hero-description {
@@ -255,7 +289,7 @@ body {
 
 .hero-primary-btn {
     padding: 13px 21px;
-    color: white;
+    color: #ffffff;
     font-size: 12px;
     font-weight: 700;
     border: none;
@@ -265,8 +299,9 @@ body {
     transition: all 0.25s ease;
 }
 
-.hero-primary-btn:hover {
-    color: white;
+.hero-primary-btn:hover,
+.hero-primary-btn:focus {
+    color: #ffffff;
     background: var(--eventora-primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 10px 22px rgba(121, 82, 232, 0.25);
@@ -498,7 +533,6 @@ body {
     background: #f5f1ff;
 }
 
-
 .floating-icon-card {
     position: absolute;
     z-index: 3;
@@ -546,7 +580,6 @@ body {
     transform: rotate(-9deg);
 }
 
-
 .visual-caption {
     position: absolute;
     z-index: 4;
@@ -568,7 +601,7 @@ body {
     justify-content: center;
     width: 34px;
     height: 34px;
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     border-radius: 10px;
     background: #22c55e;
@@ -615,7 +648,7 @@ body {
 
 .event-types-heading h2 {
     margin: 0;
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     font-size: 25px;
     font-weight: 800;
     letter-spacing: -0.8px;
@@ -747,7 +780,8 @@ body {
     transition: color 0.2s ease;
 }
 
-.bottom-message-link:hover {
+.bottom-message-link:hover,
+.bottom-message-link:focus {
     color: var(--eventora-primary-dark);
 }
 
@@ -775,12 +809,12 @@ body {
 }
 
 @media (max-width: 575px) {
-    .eventora-navbar {
-        padding: 12px 0;
+    :root {
+        --eventora-navbar-height: 66px;
     }
 
-    .eventora-welcome {
-        padding-top: 66px;
+    .eventora-navbar {
+        padding: 12px 0;
     }
 
     .eventora-brand {

@@ -1,0 +1,805 @@
+.eventora-about-page {
+    background: #ffffff;
+    color: #292344;
+    overflow: hidden;
+}
+
+.eventora-about-page * {
+    box-sizing: border-box;
+}
+
+/* ======================================
+   HERO SECTION
+====================================== */
+
+.eventora-about-hero {
+    position: relative;
+    padding: 90px 0;
+    background:
+        radial-gradient(circle at 85% 20%,
+            rgba(167, 139, 250, 0.15),
+            transparent 30%),
+        linear-gradient(135deg, #faf8ff 0%, #ffffff 55%, #f5f0ff 100%);
+}
+
+.eventora-about-hero .container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.eventora-about-hero-content {
+    max-width: 620px;
+}
+
+.eventora-about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    margin-bottom: 25px;
+    border: 1px solid #e8ddff;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #7952e8;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.eventora-about-hero-content h1 {
+    margin-bottom: 22px;
+    color: #292344;
+    font-size: clamp(38px, 4.5vw, 60px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.8px;
+}
+
+.eventora-about-hero-content h1 span {
+    display: block;
+    color: #7952e8;
+}
+
+.eventora-about-hero-content>p {
+    max-width: 530px;
+    margin-bottom: 30px;
+    color: #77718c;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.eventora-about-hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.eventora-about-primary-btn,
+.eventora-about-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 21px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.eventora-about-primary-btn {
+    background: #7952e8;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(121, 82, 232, 0.18);
+}
+
+.eventora-about-primary-btn:hover {
+    background: #6741d9;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.eventora-about-secondary-btn {
+    border: 1px solid #e4dcf7;
+    background: #ffffff;
+    color: #7952e8;
+}
+
+.eventora-about-secondary-btn:hover {
+    border-color: #7952e8;
+    background: #f6f2ff;
+    color: #6741d9;
+}
+
+/* Hero Illustration */
+
+.eventora-about-hero-decoration {
+    position: relative;
+    display: flex;
+    min-height: 390px;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventora-about-illustration {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #e7ddff;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f1eaff, #ffffff);
+    box-shadow: 0 20px 60px rgba(121, 82, 232, 0.1);
+}
+
+.eventora-about-illustration::before {
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    border: 1px dashed #c9b7ff;
+    border-radius: 50%;
+    content: "";
+}
+
+.eventora-about-illustration-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #7952e8, #a78bfa);
+    color: #ffffff;
+    font-size: 75px;
+    transform: rotate(-8deg);
+    box-shadow: 0 15px 35px rgba(121, 82, 232, 0.25);
+}
+
+.eventora-about-illustration-stars i {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 47px;
+    border-radius: 15px;
+    background: #ffffff;
+    color: #7952e8;
+    box-shadow: 0 6px 20px rgba(41, 35, 68, 0.09);
+    font-size: 21px;
+}
+
+.eventora-about-illustration-stars i:nth-child(1) {
+    top: 25px;
+    right: 35px;
+}
+
+.eventora-about-illustration-stars i:nth-child(2) {
+    bottom: 35px;
+    left: 25px;
+    color: #ed76a8;
+}
+
+.eventora-about-illustration-stars i:nth-child(3) {
+    right: 15px;
+    bottom: 65px;
+    color: #e6a23c;
+}
+
+.eventora-about-floating-card {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 17px;
+    border: 1px solid #f0ebfa;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(41, 35, 68, 0.08);
+}
+
+.eventora-about-floating-card>i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #f0eaff;
+    color: #7952e8;
+    font-size: 21px;
+}
+
+.eventora-about-card-two>i {
+    background: #fff0f5;
+    color: #e86e9d;
+}
+
+.eventora-about-floating-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.eventora-about-floating-card strong {
+    color: #292344;
+    font-size: 13px;
+}
+
+.eventora-about-floating-card span {
+    color: #89839d;
+    font-size: 11px;
+}
+
+.eventora-about-card-one {
+    top: 30px;
+    left: -10px;
+}
+
+.eventora-about-card-two {
+    right: -10px;
+    bottom: 30px;
+}
+
+/* ======================================
+   COMMON SECTION STYLES
+====================================== */
+
+.eventora-about-section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #7952e8;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+}
+
+.eventora-about-section-title {
+    margin-bottom: 20px;
+    color: #292344;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.8px;
+}
+
+.eventora-about-section-title span {
+    color: #7952e8;
+}
+
+.eventora-about-section-text {
+    margin-bottom: 17px;
+    color: #77718c;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.eventora-about-section-heading {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.eventora-about-section-heading>p {
+    margin: 0;
+    color: #77718c;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ======================================
+   INTRODUCTION SECTION
+====================================== */
+
+.eventora-about-intro {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.eventora-about-intro-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    overflow: hidden;
+    border: 1px solid #eee7ff;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #f7f3ff, #ffffff);
+}
+
+.eventora-about-intro-icon {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #7952e8, #a78bfa);
+    color: #ffffff;
+    font-size: 75px;
+    box-shadow: 0 15px 40px rgba(121, 82, 232, 0.2);
+}
+
+.eventora-about-orbit {
+    position: absolute;
+    border: 1px dashed #c9b7ff;
+    border-radius: 50%;
+}
+
+.eventora-about-orbit-one {
+    width: 250px;
+    height: 250px;
+}
+
+.eventora-about-orbit-two {
+    width: 320px;
+    height: 320px;
+    border-color: #e3d8ff;
+}
+
+.eventora-about-intro-caption {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 15px;
+    border: 1px solid #eee7ff;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #7952e8;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(41, 35, 68, 0.05);
+}
+
+.eventora-about-check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.eventora-about-check-list div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #514968;
+    font-size: 14px;
+}
+
+.eventora-about-check-list i {
+    color: #7952e8;
+    font-size: 17px;
+}
+
+/* ======================================
+   MISSION AND VISION
+====================================== */
+
+.eventora-about-mission {
+    padding: 85px 0;
+    background: #faf8ff;
+}
+
+.eventora-about-purpose-card {
+    height: 100%;
+    padding: 35px;
+    border: 1px solid #eee7ff;
+    border-radius: 18px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.eventora-about-purpose-card:hover {
+    border-color: #d8caff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(121, 82, 232, 0.08);
+}
+
+.eventora-about-purpose-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 22px;
+    border-radius: 16px;
+    background: #f0eaff;
+    color: #7952e8;
+    font-size: 27px;
+}
+
+.eventora-about-purpose-icon.vision-icon {
+    background: #eaf5ff;
+    color: #438be8;
+}
+
+.eventora-about-purpose-card h3 {
+    margin-bottom: 15px;
+    color: #292344;
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.eventora-about-purpose-card p {
+    margin: 0;
+    color: #77718c;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ======================================
+   FEATURES SECTION
+====================================== */
+
+.eventora-about-features {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.eventora-about-feature-card {
+    height: 100%;
+    padding: 28px;
+    border: 1px solid #eee9f7;
+    border-radius: 16px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.eventora-about-feature-card:hover {
+    border-color: #d9caff;
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(121, 82, 232, 0.08);
+}
+
+.eventora-about-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 22px;
+    border-radius: 15px;
+    background: #f0eaff;
+    color: #7952e8;
+    font-size: 25px;
+}
+
+.eventora-about-feature-icon.icon-blue {
+    background: #eaf4ff;
+    color: #3985e8;
+}
+
+.eventora-about-feature-icon.icon-pink {
+    background: #fff0f5;
+    color: #e86e9d;
+}
+
+.eventora-about-feature-icon.icon-orange {
+    background: #fff5e7;
+    color: #e5a044;
+}
+
+.eventora-about-feature-icon.icon-green {
+    background: #eafaf1;
+    color: #35a875;
+}
+
+.eventora-about-feature-icon.icon-indigo {
+    background: #efedff;
+    color: #7060d8;
+}
+
+.eventora-about-feature-card h4 {
+    margin-bottom: 12px;
+    color: #292344;
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.eventora-about-feature-card p {
+    margin: 0;
+    color: #77718c;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* ======================================
+   CALL TO ACTION
+====================================== */
+
+.eventora-about-cta {
+    padding: 20px 0 90px;
+    background: #ffffff;
+}
+
+.eventora-about-cta-content {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 25px;
+    border: 1px solid #e8ddff;
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at 10% 10%,
+            rgba(167, 139, 250, 0.17),
+            transparent 30%),
+        linear-gradient(135deg, #faf8ff, #f2ecff);
+    text-align: center;
+}
+
+.eventora-about-cta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    border-radius: 17px;
+    background: #ffffff;
+    color: #7952e8;
+    font-size: 25px;
+    box-shadow: 0 5px 20px rgba(121, 82, 232, 0.1);
+}
+
+.eventora-about-cta-content h2 {
+    margin-bottom: 15px;
+    color: #292344;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.eventora-about-cta-content h2 span {
+    color: #7952e8;
+}
+
+.eventora-about-cta-content p {
+    max-width: 550px;
+    margin: 0 auto 25px;
+    color: #77718c;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.eventora-about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 10px;
+    background: #7952e8;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.eventora-about-cta-btn:hover {
+    background: #6741d9;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(121, 82, 232, 0.2);
+}
+
+/* ======================================
+   TABLET RESPONSIVE
+====================================== */
+
+@media (max-width: 991px) {
+    .eventora-about-hero {
+        padding: 65px 0;
+    }
+
+    .eventora-about-hero .container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .eventora-about-hero-content {
+        max-width: 700px;
+    }
+
+    .eventora-about-hero-decoration {
+        min-height: 340px;
+    }
+
+    .eventora-about-intro,
+    .eventora-about-features {
+        padding: 65px 0;
+    }
+
+    .eventora-about-mission {
+        padding: 65px 0;
+    }
+
+    .eventora-about-intro-visual {
+        min-height: 320px;
+    }
+
+    .eventora-about-purpose-card {
+        padding: 28px;
+    }
+}
+
+/* ======================================
+   MOBILE RESPONSIVE
+====================================== */
+
+@media (max-width: 576px) {
+    .eventora-about-hero {
+        padding: 45px 0;
+    }
+
+    .eventora-about-hero .container {
+        gap: 15px;
+    }
+
+    .eventora-about-badge {
+        margin-bottom: 18px;
+        font-size: 10px;
+    }
+
+    .eventora-about-hero-content h1 {
+        font-size: 37px;
+        letter-spacing: -1px;
+    }
+
+    .eventora-about-hero-content>p {
+        font-size: 14px;
+    }
+
+    .eventora-about-hero-buttons {
+        align-items: stretch;
+    }
+
+    .eventora-about-primary-btn,
+    .eventora-about-secondary-btn {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+
+    .eventora-about-hero-decoration {
+        min-height: 300px;
+        margin-top: 10px;
+    }
+
+    .eventora-about-illustration {
+        width: 235px;
+        height: 235px;
+    }
+
+    .eventora-about-illustration::before {
+        width: 180px;
+        height: 180px;
+    }
+
+    .eventora-about-illustration-circle {
+        width: 115px;
+        height: 115px;
+        border-radius: 30px;
+        font-size: 58px;
+    }
+
+    .eventora-about-illustration-stars i {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+
+    .eventora-about-card-one {
+        top: 5px;
+        left: 0;
+    }
+
+    .eventora-about-card-two {
+        right: 0;
+        bottom: 5px;
+    }
+
+    .eventora-about-floating-card {
+        gap: 8px;
+        padding: 9px;
+    }
+
+    .eventora-about-floating-card>i {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
+
+    .eventora-about-floating-card strong {
+        font-size: 11px;
+    }
+
+    .eventora-about-floating-card span {
+        font-size: 9px;
+    }
+
+    .eventora-about-section-title {
+        font-size: 29px;
+    }
+
+    .eventora-about-intro,
+    .eventora-about-features {
+        padding: 50px 0;
+    }
+
+    .eventora-about-mission {
+        padding: 50px 0;
+    }
+
+    .eventora-about-intro-visual {
+        min-height: 290px;
+    }
+
+    .eventora-about-intro-icon {
+        width: 115px;
+        height: 115px;
+        border-radius: 28px;
+        font-size: 58px;
+    }
+
+    .eventora-about-orbit-one {
+        width: 200px;
+        height: 200px;
+    }
+
+    .eventora-about-orbit-two {
+        width: 260px;
+        height: 260px;
+    }
+
+    .eventora-about-intro-caption {
+        right: 12px;
+        bottom: 12px;
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .eventora-about-section-heading {
+        margin-bottom: 30px;
+    }
+
+    .eventora-about-purpose-card {
+        padding: 25px;
+    }
+
+    .eventora-about-purpose-card h3 {
+        font-size: 19px;
+    }
+
+    .eventora-about-feature-card {
+        padding: 23px;
+    }
+
+    .eventora-about-cta {
+        padding: 10px 0 50px;
+    }
+
+    .eventora-about-cta-content {
+        padding: 40px 18px;
+        border-radius: 18px;
+    }
+
+    .eventora-about-cta-content h2 {
+        font-size: 27px;
+    }
+
+    .eventora-about-cta-content p {
+        font-size: 13px;
+    }
+}

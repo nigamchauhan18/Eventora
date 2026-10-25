@@ -1,172 +1,127 @@
-import "../../assets/Footer.css";
 import { Link } from "react-router-dom";
+import "../../assets/Footer.css";
 
 function Footer() {
   return (
     <footer className="eventora-footer">
-      {/* Main Footer */}
-      <div className="container">
-        <div className="row g-4 footer-main">
+      <div className="container-fluid px-4 px-lg-5">
+        <div className="row g-4">
           {/* Brand Section */}
           <div className="col-lg-4 col-md-6">
-            <Link to="/" className="footer-brand">
-              <span className="footer-brand-icon">
+            <Link to="/user-dashboard" className="eventora-footer-brand">
+              <span className="eventora-footer-logo">
                 <i className="bi bi-calendar-event"></i>
               </span>
-              <span>
-                Event<span className="footer-brand-highlight">ora</span>
-              </span>
+              <span>Eventora</span>
             </Link>
 
-            <p className="footer-description">
-              Discover amazing events, connect with incredible people, and
-              create unforgettable memories with Eventora.
+            <p className="eventora-footer-description">
+              Discover amazing events, connect with people, and create
+              unforgettable memories with Eventora. Your next great experience
+              starts here.
             </p>
 
             {/* Social Media */}
-            <div className="footer-socials">
-              <Link to="#" aria-label="Facebook" className="social-icon">
+            <div className="eventora-footer-socials">
+              <a href="https://www.facebook.com/" aria-label="Facebook">
                 <i className="bi bi-facebook"></i>
-              </Link>
+              </a>
 
-              <Link to="#" aria-label="Instagram" className="social-icon">
+              <a href="https://www.instagram.com/" aria-label="Instagram">
                 <i className="bi bi-instagram"></i>
-              </Link>
+              </a>
 
-              <Link to="#" aria-label="Twitter" className="social-icon">
-                <i className="bi bi-twitter-x"></i>
-              </Link>
-
-              <Link to="#" aria-label="LinkedIn" className="social-icon">
+              <a href="https://www.linkedin.com/" aria-label="LinkedIn">
                 <i className="bi bi-linkedin"></i>
-              </Link>
+              </a>
+
+              <a href="https://www.youtube.com/" aria-label="YouTube">
+                <i className="bi bi-youtube"></i>
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="col-lg-2 col-md-6 col-6">
-            <h5 className="footer-heading">Quick Links</h5>
+            <h5 className="eventora-footer-heading">Quick Links</h5>
 
-            <ul className="footer-links">
+            <ul className="eventora-footer-links">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/user-dashboard">Home</Link>
               </li>
               <li>
-                <Link to="/events">Explore Events</Link>
+                <Link to="/user-dashboard/explore-events">Explore Events</Link>
               </li>
               <li>
-                <Link to="/my-events">My Events</Link>
+                <Link to="/user-dashboard/calendar">Calendar</Link>
               </li>
               <li>
-                <Link to="/about">About Us</Link>
+                <Link to="/user-dashboard/gallery">Gallery</Link>
               </li>
               <li>
-                <Link to="/contact">Contact Us</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Event Categories */}
-          <div className="col-lg-3 col-md-6 col-6">
-            <h5 className="footer-heading">Event Categories</h5>
-
-            <ul className="footer-links">
-              <li>
-                <Link to="/events">Music & Concerts</Link>
-              </li>
-              <li>
-                <Link to="/events">Technology</Link>
-              </li>
-              <li>
-                <Link to="/events">Business & Networking</Link>
-              </li>
-              <li>
-                <Link to="/events">Arts & Culture</Link>
-              </li>
-              <li>
-                <Link to="/events">Sports & Fitness</Link>
+                <Link to="/user-dashboard/about">About Us</Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Information */}
-          <div className="col-lg-3 col-md-6">
-            <h5 className="footer-heading">Get In Touch</h5>
+          {/* User Links */}
+          <div className="col-lg-2 col-md-6 col-6">
+            <h5 className="eventora-footer-heading">My Account</h5>
 
-            <div className="footer-contact-item">
-              <span className="footer-contact-icon">
-                <i className="bi bi-envelope"></i>
-              </span>
+            <ul className="eventora-footer-links">
+              <li>
+                <Link to="/user-dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/user-dashboard/my-bookings">My Bookings</Link>
+              </li>
+              <li>
+                <Link to="/user-dashboard/my-tickets">My Tickets</Link>
+              </li>
+              <li>
+                <Link to="/user-dashboard/wishlist">Wishlist</Link>
+              </li>
+              <li>
+                <Link to="/user-dashboard/registrations">Registrations</Link>
+              </li>
+            </ul>
+          </div>
 
-              <div>
-                <p className="footer-contact-label">Email Us</p>
-                <Link to="mailto:support@eventora.com">support@eventora.com</Link>
-              </div>
-            </div>
+          {/* Contact Section */}
+          <div className="col-lg-4 col-md-6">
+            <h5 className="eventora-footer-heading">Get in Touch</h5>
 
-            <div className="footer-contact-item">
-              <span className="footer-contact-icon">
-                <i className="bi bi-telephone"></i>
-              </span>
+            <p className="eventora-footer-contact">
+              <i className="bi bi-envelope"></i>
+              <span>support@eventora.com</span>
+            </p>
 
-              <div>
-                <p className="footer-contact-label">Call Us</p>
-                <Link to="tel:+911234567890">+91 12345 67890</Link>
-              </div>
-            </div>
+            <p className="eventora-footer-contact">
+              <i className="bi bi-telephone"></i>
+              <span>+91 98765 43210</span>
+            </p>
 
-            <div className="footer-contact-item">
-              <span className="footer-contact-icon">
-                <i className="bi bi-geo-alt"></i>
-              </span>
+            <p className="eventora-footer-contact">
+              <i className="bi bi-geo-alt"></i>
+              <span>India</span>
+            </p>
 
-              <div>
-                <p className="footer-contact-label">Our Location</p>
-                <span className="footer-contact-text">New Delhi, India</span>
-              </div>
-            </div>
+            <Link to="/user-dashboard/feedback" className="eventora-footer-contact-btn">
+              Send Feedback
+              <i className="bi bi-arrow-right"></i>
+            </Link>
           </div>
         </div>
 
-        {/* Newsletter UI */}
-        <div className="footer-newsletter">
-          <div className="newsletter-content">
-            <div className="newsletter-icon">
-              <i className="bi bi-envelope-paper"></i>
-            </div>
-
-            <div>
-              <h5>Stay Updated with Eventora</h5>
-              <p>Discover exciting events and get the latest updates.</p>
-            </div>
-          </div>
-
-          <div className="newsletter-form">
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter your email address"
-              aria-label="Email address"
-            />
-
-            <button type="button" className="newsletter-button">
-              Subscribe <i className="bi bi-arrow-right ms-2"></i>
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Footer */}
-        <div className="footer-bottom">
+        {/* Footer Bottom */}
+        <div className="eventora-footer-bottom">
           <p>
-            © 2026 <span>Eventora</span>. All rights reserved.
+            &copy; {new Date().getFullYear()} Eventora. All rights reserved.
           </p>
 
-          <div className="footer-bottom-links">
+          <div className="eventora-footer-legal">
             <Link to="/privacy-policy">Privacy Policy</Link>
-            <span className="footer-divider">|</span>
             <Link to="/terms">Terms & Conditions</Link>
-            <span className="footer-divider">|</span>
-            <Link to="/help">Help Center</Link>
           </div>
         </div>
       </div>

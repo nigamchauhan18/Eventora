@@ -1,0 +1,338 @@
+.admin-footer {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  padding: 45px 0 0;
+  color: #6f687d;
+  background: #ffffff;
+  border-top: 3px solid #8050d5;
+  box-shadow: 0 -4px 20px rgba(80, 50, 130, 0.04);
+}
+
+/* ========================================
+   BRAND SECTION
+======================================== */
+
+.admin-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #35264f;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 800;
+  transition: color 0.2s ease;
+}
+
+.admin-footer-brand:hover {
+  color: #8050d5;
+}
+
+.admin-footer-logo {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #9566e8, #7041bd);
+  border-radius: 12px;
+  font-size: 21px;
+  box-shadow: 0 5px 15px rgba(128, 80, 213, 0.18);
+}
+
+.admin-footer-badge {
+  padding: 4px 7px;
+  color: #7041bd;
+  background: #f2eaff;
+  border: 1px solid #e5d6ff;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.admin-footer-description {
+  max-width: 360px;
+  margin-bottom: 22px;
+  color: #777083;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ========================================
+   SOCIAL MEDIA
+======================================== */
+
+.admin-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-footer-socials a {
+  width: 37px;
+  height: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #7950bd;
+  background: #f6f1ff;
+  border: 1px solid #eee5ff;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.25s ease;
+}
+
+.admin-footer-socials a:hover {
+  color: #ffffff;
+  background: #8050d5;
+  border-color: #8050d5;
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   FOOTER HEADINGS
+======================================== */
+
+.admin-footer-heading {
+  position: relative;
+  margin: 7px 0 22px;
+  padding-bottom: 12px;
+  color: #35264f;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.admin-footer-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 35px;
+  height: 3px;
+  background: #9566e8;
+  border-radius: 5px;
+}
+
+/* ========================================
+   FOOTER LINKS
+======================================== */
+
+.admin-footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-footer-links li {
+  margin-bottom: 12px;
+}
+
+.admin-footer-links a {
+  display: inline-block;
+  color: #777083;
+  text-decoration: none;
+  font-size: 12px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-footer-links a:hover {
+  color: #8050d5;
+  transform: translateX(4px);
+}
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+.admin-footer-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: #777083;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.admin-footer-contact i {
+  min-width: 18px;
+  margin-top: 2px;
+  color: #8050d5;
+  font-size: 16px;
+}
+
+/* ========================================
+   CONTACT BUTTON
+======================================== */
+
+.admin-footer-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 7px;
+  padding: 11px 16px;
+  color: #7041bd;
+  background: #f3ebff;
+  border: 1px solid #e4d4ff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.admin-footer-contact-btn:hover {
+  color: #ffffff;
+  background: #8050d5;
+  border-color: #8050d5;
+  box-shadow: 0 5px 15px rgba(128, 80, 213, 0.18);
+  transform: translateY(-2px);
+}
+
+.admin-footer-contact-btn i {
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+.admin-footer-contact-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* ========================================
+   FOOTER BOTTOM
+======================================== */
+
+.admin-footer-bottom {
+  min-height: 68px;
+  margin-top: 38px;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #eee8f7;
+}
+
+.admin-footer-bottom p {
+  margin: 0;
+  color: #91899f;
+  font-size: 11px;
+}
+
+.admin-footer-legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.admin-footer-legal a {
+  color: #91899f;
+  text-decoration: none;
+  font-size: 11px;
+  transition: color 0.2s ease;
+}
+
+.admin-footer-legal a:hover {
+  color: #8050d5;
+}
+
+/* ========================================
+   TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 991px) {
+  .admin-footer {
+    padding-top: 38px;
+  }
+
+  .admin-footer-description {
+    max-width: 420px;
+  }
+
+  .admin-footer-heading {
+    margin-top: 5px;
+  }
+
+  .admin-footer-bottom {
+    margin-top: 28px;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 576px) {
+  .admin-footer {
+    padding-top: 30px;
+  }
+
+  .admin-footer-brand {
+    font-size: 21px;
+  }
+
+  .admin-footer-logo {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+
+  .admin-footer-description {
+    font-size: 12px;
+  }
+
+  .admin-footer-heading {
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  .admin-footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .admin-footer-links a,
+  .admin-footer-contact {
+    font-size: 11px;
+  }
+
+  .admin-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .admin-footer-legal {
+    gap: 16px;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE
+======================================== */
+
+@media (max-width: 360px) {
+  .admin-footer-legal {
+    gap: 12px;
+  }
+
+  .admin-footer-legal a {
+    font-size: 10px;
+  }
+
+  .admin-footer-bottom p {
+    font-size: 10px;
+  }
+}

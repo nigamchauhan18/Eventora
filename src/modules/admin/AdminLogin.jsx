@@ -1,179 +1,251 @@
-import "../../assets/AdminLogin.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../assets/AdminLogin.css";
 
 function AdminLogin() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Admin login functionality needs to be connected.");
+  };
+
   return (
-    <div className="admin-login-page container-fluid d-flex justify-content-center align-items-center py-5 px-3">
-      {" "}
-      <div className="admin-login-wrapper row g-0 shadow-lg">
-        {/* LEFT CARD */}
-        <div className="col-lg-5">
-          <div className="admin-login-left h-100 d-flex flex-column justify-content-between">
-            <div>
-              <Link to="/" className="admin-login-brand">
-                <i className="bi bi-calendar-event me-2"></i>
-                Eventora
+    <div className="eventora-admin-page">
+      {/* Background Decorations */}
+      <div className="admin-background-shape admin-shape-one"></div>
+      <div className="admin-background-shape admin-shape-two"></div>
+
+      <div className="admin-login-wrapper">
+        <div className="admin-login-card">
+          {/* LEFT VISUAL PANEL */}
+          <div className="admin-visual-panel">
+            <div className="admin-visual-content">
+              <Link to="/" className="admin-brand">
+                <span className="admin-brand-icon">
+                  <i className="bi bi-calendar-event"></i>
+                </span>
+                <span>Eventora</span>
               </Link>
 
-              <div className="admin-login-intro">
-                <span className="admin-login-badge">ADMINISTRATOR PORTAL</span>
+              <div className="admin-visual-heading">
+                <span className="admin-eyebrow">
+                  <span className="admin-eyebrow-dot"></span>
+                  ADMINISTRATION PORTAL
+                </span>
 
-                <h1>Manage Every Event in One Place.</h1>
+                <h1>
+                  Manage every
+                  <br />
+                  <span>moment with ease.</span>
+                </h1>
 
                 <p>
                   Welcome to the Eventora administration portal. Sign in to
-                  manage events, oversee activities, and keep everything running
+                  manage events, oversee users, and keep everything running
                   smoothly.
                 </p>
               </div>
 
-              <div className="admin-login-feature">
-                <div className="admin-feature-icon">
-                  <i className="bi bi-speedometer2"></i>
+              {/* Admin Features */}
+              <div className="admin-feature-list">
+                <div className="admin-feature">
+                  <div className="admin-feature-icon">
+                    <i className="bi bi-calendar2-check"></i>
+                  </div>
+
+                  <div>
+                    <h6>Event Management</h6>
+                    <p>Oversee events and keep plans organized.</p>
+                  </div>
                 </div>
 
-                <div>
-                  <h6>Admin Dashboard</h6>
-                  <p>Access your event management dashboard.</p>
+                <div className="admin-feature">
+                  <div className="admin-feature-icon">
+                    <i className="bi bi-people"></i>
+                  </div>
+
+                  <div>
+                    <h6>User Management</h6>
+                    <p>Manage accounts and user activity.</p>
+                  </div>
+                </div>
+
+                <div className="admin-feature">
+                  <div className="admin-feature-icon">
+                    <i className="bi bi-shield-check"></i>
+                  </div>
+
+                  <div>
+                    <h6>Secure Administration</h6>
+                    <p>Keep your administration access protected.</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="admin-login-feature">
-                <div className="admin-feature-icon">
-                  <i className="bi bi-calendar2-check"></i>
-                </div>
-
-                <div>
-                  <h6>Manage Events</h6>
-                  <p>Monitor and organize platform events.</p>
-                </div>
+              {/* Decorative Icons */}
+              <div className="admin-floating-icon admin-floating-one">
+                <i className="bi bi-gear"></i>
               </div>
 
-              <div className="admin-login-feature">
-                <div className="admin-feature-icon">
-                  <i className="bi bi-shield-lock"></i>
-                </div>
-
-                <div>
-                  <h6>Secure Access</h6>
-                  <p>Access administrative tools securely.</p>
-                </div>
+              <div className="admin-floating-icon admin-floating-two">
+                <i className="bi bi-stars"></i>
               </div>
             </div>
 
-            <div className="admin-login-left-footer">
-              <hr />
-              <p>© 2026 Eventora. Make every moment count.</p>
+            <div className="admin-visual-footer">
+              <span>MAKING EVERY MOMENT COUNT</span>
+              <span>© {new Date().getFullYear()} Eventora</span>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT CARD */}
-        <div className="col-lg-7">
-          <div className="admin-login-right">
-            <div className="admin-login-icon">
-              <i className="bi bi-person-lock"></i>
-            </div>
+          {/* RIGHT LOGIN PANEL */}
+          <div className="admin-form-panel">
+            {/* Mobile Brand */}
+            <Link to="/" className="admin-mobile-brand">
+              <span className="admin-mobile-brand-icon">
+                <i className="bi bi-calendar-event"></i>
+              </span>
+              Eventora
+            </Link>
 
-            <div className="admin-login-heading">
-              <h2>Admin Login</h2>
-              <p>Enter your administrator credentials to continue.</p>
-            </div>
-
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                alert("Admin authentication needs to be connected.");
-              }}
-            >
-              {/* EMAIL */}
-              <div className="mb-4">
-                <label htmlFor="adminEmail" className="form-label">
-                  Admin Email Address
-                </label>
-
-                <div className="input-group admin-login-input">
-                  <span className="input-group-text">
-                    <i className="bi bi-envelope"></i>
-                  </span>
-
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="adminEmail"
-                    name="email"
-                    placeholder="Enter your admin email"
-                    autoComplete="username"
-                    required
-                  />
-                </div>
+            <div className="admin-form-content">
+              {/* Admin Icon */}
+              <div className="admin-main-icon">
+                <i className="bi bi-person-lock"></i>
               </div>
 
-              {/* PASSWORD */}
-              <div className="mb-3">
-                <label htmlFor="adminPassword" className="form-label">
-                  Password
-                </label>
+              {/* Heading */}
+              <div className="admin-form-heading">
+                <span className="admin-form-badge">
+                  <i className="bi bi-shield-lock me-2"></i>
+                  ADMIN ACCESS
+                </span>
 
-                <div className="input-group admin-login-input">
-                  <span className="input-group-text">
-                    <i className="bi bi-lock"></i>
-                  </span>
+                <h2>Welcome Back, Admin</h2>
 
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="adminPassword"
-                    name="password"
-                    placeholder="Enter your password"
-                    autoComplete="current-password"
-                    required
-                  />
-                </div>
+                <p>
+                  Sign in with your administrator credentials to access the
+                  management portal.
+                </p>
               </div>
 
-              {/* REMEMBER AND FORGOT PASSWORD */}
-              <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="rememberAdmin"
-                  />
+              {/* Login Form */}
+              <form onSubmit={handleSubmit} className="admin-login-form">
+                {/* Email */}
+                <div className="admin-field-group">
+                  <label htmlFor="admin-email">Email Address</label>
 
-                  <label className="form-check-label" htmlFor="rememberAdmin">
-                    Remember me
+                  <div className="admin-input-wrapper">
+                    <i className="bi bi-envelope admin-input-icon"></i>
+
+                    <input
+                      type="email"
+                      id="admin-email"
+                      name="email"
+                      placeholder="admin@example.com"
+                      autoComplete="username"
+                      required
+                    />
+                  </div>
+                </div>
+                {/* Password */}
+                <div className="admin-field-group">
+                  <div className="admin-password-label">
+                    <label htmlFor="admin-password">Password</label>
+                  </div>
+
+                  <div className="admin-input-wrapper">
+                    <i className="bi bi-lock admin-input-icon"></i>
+
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="admin-password"
+                      name="password"
+                      placeholder="Enter your password"
+                      autoComplete="current-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      className="admin-password-toggle"
+                      onClick={() => setShowPassword((previous) => !previous)}
+                      aria-label={
+                        showPassword ? "Hide password" : "Show password"
+                      }
+                    >
+                      <i
+                        className={
+                          showPassword ? "bi bi-eye-slash" : "bi bi-eye"
+                        }
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+                {/* Remember Me */}
+                <div className="admin-form-options">
+                  <label className="admin-remember-label">
+                    <input type="checkbox" name="rememberMe" />
+                    <span className="admin-custom-checkbox"></span>
+                    <span>Remember me</span>
                   </label>
+
+                  <Link to="/admin-forgot-password" className="admin-forgot-link">
+                    Forgot password?
+                  </Link>
+                </div>
+                
+                {/* Submit */}{" "}
+                <button type="submit" className="admin-submit-btn">
+                  {" "}
+                  <span>Sign In to Dashboard</span>{" "}
+                  <i className="bi bi-arrow-right"></i>{" "}
+                </button>
+                {/* Create Admin Account */}
+                <div className="admin-create-account">
+                  <p>
+                    Don't have an admin account?
+                    <Link to="/admin-register" className="admin-create-link">
+                      Create Admin Account
+                      <i className="bi bi-arrow-up-right ms-1"></i>
+                    </Link>
+                  </p>
+                </div>
+              </form>
+
+              {/* Divider */}
+              <div className="admin-divider">
+                <span>AUTHORIZED PERSONNEL ONLY</span>
+              </div>
+
+              {/* Security Notice */}
+              <div className="admin-security-box">
+                <div className="admin-security-icon">
+                  <i className="bi bi-shield-check"></i>
                 </div>
 
-                <Link to="/forgot-password" className="admin-forgot-link">
-                  Forgot Password?
+                <div>
+                  <h6>Secure Admin Access</h6>
+                  <p>
+                    This portal is intended for authorized Eventora
+                    administrators only.
+                  </p>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="admin-form-footer">
+                <Link to="/" className="admin-home-link">
+                  <i className="bi bi-house-door me-1"></i>
+                  Back to Home
+                </Link>
+
+                <Link to="/user-login" className="admin-user-login-link">
+                  User Login
+                  <i className="bi bi-arrow-up-right ms-1"></i>
                 </Link>
               </div>
-
-              {/* LOGIN BUTTON */}
-              <button type="submit" className="admin-login-submit">
-                <i className="bi bi-box-arrow-in-right me-2"></i>
-                Sign In to Dashboard
-              </button>
-            </form>
-
-            <div className="admin-login-divider">
-              <span>Are you an event organizer?</span>
-            </div>
-
-            <div className="text-center">
-              <Link to="/user-login" className="admin-user-login-link">
-                <i className="bi bi-person me-1"></i>
-                User Login
-              </Link>
-            </div>
-
-            <div className="admin-login-bottom">
-              <Link to="/">
-                <i className="bi bi-arrow-left me-1"></i>
-                Back to Home
-              </Link>
             </div>
           </div>
         </div>
