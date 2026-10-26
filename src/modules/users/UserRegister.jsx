@@ -6,20 +6,17 @@ function UserRegister() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    const password = form.password.value;
-    const confirmPassword = form.confirmPassword.value;
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-
-    alert("Registration form submitted successfully!");
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const form = e.currentTarget;
+  //   const password = form.password.value;
+  //   const confirmPassword = form.confirmPassword.value;
+  //   if (password !== confirmPassword) {
+  //     alert("Passwords do not match.");
+  //     return;
+  //   }
+  //   alert("Registration form submitted successfully!");
+  // };
 
   return (
     <div className="eventora-register-page">
@@ -127,7 +124,7 @@ function UserRegister() {
                 <p>Join Eventora and start creating memorable experiences.</p>
               </div>
 
-              <form onSubmit={handleSubmit}>
+              <form>
                 <div className="register-input-group">
                   <label htmlFor="fullName">Full name</label>
 
