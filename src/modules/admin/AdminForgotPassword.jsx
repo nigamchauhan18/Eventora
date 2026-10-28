@@ -2,14 +2,43 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/AdminForgotPassword.css";
 
+import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 function AdminForgotPassword() {
-  const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const userDash = useNavigate();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    alert("Password recovery functionality needs to be connected.");
-  };
+  const onSubmit = (data) => {
+    try {
+      const storedUser = localStorage.getItem("eventoraAdmin");
+      if (!storedUser) {
+        toast.error("No registered account found.");
+        return;
+      }
+      const adminData = JSON.parse(storedUser);
+      const emailMatch = adminData.email === data.email;
+      if (!emailMatch) {
+        toast.error("Email address is not registered.");
+        return;
+      }
+      adminData.password = data.password;
+      adminData.confirmPassword = data.password;
+      localStorage.setItem("eventoraAdmin", JSON.stringify(adminData));
+      toast.success("Password changed successfully!");
+      reset();
+      setTimeout(() => {
+        userDash('/admin-login');
+      }, 1500);
+    } catch(error) {
+      console.error("Password update failed:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
+  }
+
 
   return (
     <div className="eventora-admin-forgot-page">
@@ -133,7 +162,7 @@ function AdminForgotPassword() {
               </div>
 
               {/* Recovery Form */}
-              <form onSubmit={handleSubmit} className="admin-forgot-form">
+              <form className="admin-forgot-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="admin-forgot-field-group">
                   <label htmlFor="admin-forgot-email">
                     Administrator Email
@@ -148,9 +177,7 @@ function AdminForgotPassword() {
                       name="email"
                       placeholder="admin@example.com"
                       autoComplete="email"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      required
+                      {...register("email", { required: "Email is required.", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Please enter a valid email address." }})}
                     />
                   </div>
 
@@ -158,6 +185,40 @@ function AdminForgotPassword() {
                     Enter the email address you used to create your admin
                     account.
                   </small>
+                  {errors.email && <small className="text-danger" style={{ fontSize: '12px' }}>{errors.email.message}</small>}
+                </div>
+                <div className="admin-forgot-field-group">
+                  <label htmlFor="admin-forgot-password">
+                    New Password
+                  </label>
+
+                  <div className="admin-forgot-input-wrapper">
+                    <i className="bi bi-lock admin-forgot-input-icon"></i>
+
+                    <input
+                     type={showPassword ? "text" : "password"}
+                      id="admin-forgot-password"
+                      name="password"
+                      placeholder="Enter your new password"
+                      autoComplete="password"
+                      {...register("password", { required: "Password is required.", minLength: { value: 6, message: "Password must contain at least 6 characters." }})}
+                    />
+                    <button
+                      type="button"
+                      className="register-password-toggle"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={
+                        showPassword ? "Hide password" : "Show password"
+                      }
+                    >
+                      <i
+                        className={`bi ${
+                          showPassword ? "bi-eye-slash" : "bi-eye"
+                        }`}
+                      ></i>
+                    </button>
+                  </div>
+                  {errors.password && <small className="text-danger" style={{ fontSize: '12px' }}>{errors.password.message}</small> }
                 </div>
 
                 {/* Submit Button */}

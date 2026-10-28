@@ -2,21 +2,33 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/UserRegister.css";
 
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 function UserRegister() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-  //   const password = form.password.value;
-  //   const confirmPassword = form.confirmPassword.value;
-  //   if (password !== confirmPassword) {
-  //     alert("Passwords do not match.");
-  //     return;
-  //   }
-  //   alert("Registration form submitted successfully!");
-  // };
+  const userDash = useNavigate();
+
+  const { register, watch, reset, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    try {
+      console.log("Registration Data:", data);
+      localStorage.setItem("eventoraUser", JSON.stringify(data));
+      toast.success("Account created successfully!");
+      reset();
+      setTimeout(() => {
+        userDash('/user-dashboard');
+        toast.success("Welcome to Eventora! Your account is ready.");
+      }, 1500);
+    } catch (error) {
+      console.error("Registration failed:", error);
+      toast.error("Registration failed. Please try again.");
+    }
+  };
 
   return (
     <div className="eventora-register-page">
@@ -124,7 +136,7 @@ function UserRegister() {
                 <p>Join Eventora and start creating memorable experiences.</p>
               </div>
 
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="register-input-group">
                   <label htmlFor="fullName">Full name</label>
 
@@ -136,9 +148,10 @@ function UserRegister() {
                       name="fullName"
                       placeholder="Enter your full name"
                       autoComplete="name"
-                      required
+                      {...register("fullName", { required: "Name is required", minLength: { value: 4, message: "Name must contain at least 4 characters" }})}
                     />
                   </div>
+                  {errors.fullName && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.fullName.message}</small>}
                 </div>
 
                 <div className="register-input-group">
@@ -152,9 +165,10 @@ function UserRegister() {
                       name="email"
                       placeholder="you@example.com"
                       autoComplete="email"
-                      required
+                      {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Please enter a valid email address" }})}
                     />
                   </div>
+                  {errors.email && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.email.message}</small>}
                 </div>
 
                 <div className="register-input-group">
@@ -168,11 +182,11 @@ function UserRegister() {
                       name="phone"
                       placeholder="Enter your phone number"
                       autoComplete="tel"
-                      pattern="[0-9+() -]{7,20}"
                       title="Enter a valid phone number."
-                      required
+                      {...register("phone", { required: "Phone number is required", pattern: { value: /^[6-9]\d{9}$/, message: "Enter a valid 10-digit phone number" }})}
                     />
                   </div>
+                  {errors.phone && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.phone.message} </small>}
                 </div>
 
                 <div className="register-input-group">
@@ -187,8 +201,8 @@ function UserRegister() {
                       name="password"
                       placeholder="Create a password"
                       autoComplete="new-password"
-                      minLength={8}
-                      required
+                      minLength={6}
+                      {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must contain at least 6 characters" }})}
                     />
 
                     <button
@@ -206,10 +220,7 @@ function UserRegister() {
                       ></i>
                     </button>
                   </div>
-
-                  <small className="register-field-hint">
-                    Use at least 8 characters.
-                  </small>
+                  {errors.password && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.password.message}</small>}
                 </div>
 
                 <div className="register-input-group">
@@ -224,8 +235,8 @@ function UserRegister() {
                       name="confirmPassword"
                       placeholder="Confirm your password"
                       autoComplete="new-password"
-                      minLength={8}
-                      required
+                      minLength={6}
+                      {...register("confirmPassword", { required: "Please confirm your password", validate: (value) => value === watch("password") || "Passwords do not match", })}
                     />
 
                     <button
@@ -247,17 +258,23 @@ function UserRegister() {
                       ></i>
                     </button>
                   </div>
+                  {errors.confirmPassword && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.confirmPassword.message}</small>}
                 </div>
 
                 <div className="register-terms">
                   <label className="register-terms-label">
-                    <input type="checkbox" name="terms" required />
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      {...register("terms", { required: "You must accept the Terms & Conditions", })}
+                    />
                     <span className="register-custom-checkbox"></span>
                     <span>
                       I agree to the <Link to="/terms">Terms & Conditions</Link>{" "}
                       and <Link to="/privacy">Privacy Policy</Link>.
                     </span>
                   </label>
+                  {errors.terms && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.terms.message} </small>}
                 </div>
 
                 <button type="submit" className="register-submit-btn">

@@ -2,8 +2,47 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/UserLogin.css";
 
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 function UserLogin() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const userDash = useNavigate();
+  const { register, reset, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    try {
+      const storedUser = localStorage.getItem("eventoraUser");
+      if (!storedUser) {
+        toast.error("No account found. Please create account first.");
+        return;
+      }
+      const user = JSON.parse(storedUser);
+
+      const emailMatch = user.email === data.email;
+      const passwordMatch = user.password === data.password;
+      
+      if (!emailMatch || !passwordMatch) {
+        toast.error("Invalid email or password.");
+        return; 
+      }
+      const loginUser = {
+        email: data.email,
+        isLoggedIn: true
+      };
+      localStorage.setItem("eventoraLogin", JSON.stringify(loginUser));
+      toast.success("Login successful! Welcome to Eventora.");
+      reset();
+      setTimeout(() => {
+        userDash("/user-dashboard");
+      }, 1500);
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Something went wrong. Please try again."); 
+    }
+  }
 
   return (
     <div className="eventora-login-page">
@@ -91,7 +130,7 @@ function UserLogin() {
                   events.
                 </p>
               </div>
-              <form onSubmit={(e) => e.preventDefault()}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="login-input-group">
                   <label htmlFor="email">Email address</label>
 
@@ -104,9 +143,10 @@ function UserLogin() {
                       name="email"
                       placeholder="you@example.com"
                       autoComplete="email"
-                      required
+                      {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Please enter a valid email address" }})}
                     />
                   </div>
+                  {errors.email && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.email.message} </small>}
                 </div>
 
                 <div className="login-input-group">
@@ -125,7 +165,7 @@ function UserLogin() {
                       name="password"
                       placeholder="Enter your password"
                       autoComplete="current-password"
-                      required
+                      {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must contain at least 6 characters" }})}
                     />
 
                     <button
@@ -143,14 +183,20 @@ function UserLogin() {
                       ></i>
                     </button>
                   </div>
+                  {errors.password && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.password.message} </small>}
                 </div>
 
                 <div className="login-options">
                   <label className="login-remember">
-                    <input type="checkbox" name="remember" />
+                    <input
+                      type="checkbox"
+                      name="remember"
+                      {...register("remember", { required: "Please, check the remember box" })}
+                    />
                     <span className="custom-checkbox"></span>
                     Remember me
                   </label>
+                  {errors.remember && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.remember.message} </small>}
                 </div>
 
                 <button type="submit" className="login-submit-btn">

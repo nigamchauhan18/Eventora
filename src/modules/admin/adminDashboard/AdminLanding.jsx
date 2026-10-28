@@ -13,9 +13,9 @@ function AdminLanding() {
                 <div className='col-auto p-0'>
                     <AdminSidebar />
                 </div>
-                {/* <main className="col p-0"> */}
-                  {/* <Outlet></Outlet> */}
-                {/* </main> */}
+                <main className="col p-0">
+                  <Outlet></Outlet>
+                </main>
             </div>
         </div>
         <AdminFooter />

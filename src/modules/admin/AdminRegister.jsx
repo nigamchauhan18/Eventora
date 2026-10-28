@@ -2,24 +2,32 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/AdminRegister.css";
 
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 function AdminRegister() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const userDash = useNavigate();
 
-    const form = event.currentTarget;
-    const password = form.password.value;
-    const confirmPassword = form.confirmPassword.value;
+  const { register, watch, reset, handleSubmit, formState: { errors } } = useForm();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
+  const onSubmit = (data) => {
+    try {
+      console.log(data);
+      localStorage.setItem("eventoraAdmin", JSON.stringify(data));
+      toast.success("Admin account created successfully!");
+      reset();
+      setTimeout(() => {
+        userDash('/admin-login');
+      }, 1500);
+    } catch (error) {
+      console.error("Admin registration failed:", error);
+      toast.error("Registration failed. Please try again.");
     }
-
-    alert("Admin account creation functionality needs to be connected.");
-  };
+  }
 
   return (
     <div className="eventora-admin-register-page">
@@ -131,7 +139,7 @@ function AdminRegister() {
                 <p>Enter your details to set up an administrator account.</p>
               </div>
 
-              <form className="admin-register-form" onSubmit={handleSubmit}>
+              <form className="admin-register-form" onSubmit={handleSubmit(onSubmit)}>
                 {/* Full Name */}
                 <div className="admin-register-field">
                   <label htmlFor="admin-register-name">Full Name</label>
@@ -145,9 +153,10 @@ function AdminRegister() {
                       name="fullName"
                       placeholder="Enter your full name"
                       autoComplete="name"
-                      required
+                      {...register("fullName", { required: "Name is required", minLength: { value: 4, message: "Name must contain at least 4 characters" }})}
                     />
                   </div>
+                  {errors.fullName && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.fullName.message}</small>}
                 </div>
 
                 {/* Email */}
@@ -163,9 +172,10 @@ function AdminRegister() {
                       name="email"
                       placeholder="admin@example.com"
                       autoComplete="email"
-                      required
+                      {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Please enter a valid email address" }})}
                     />
                   </div>
+                  {errors.email && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.email.message}</small>}
                 </div>
 
                 {/* Phone */}
@@ -181,34 +191,11 @@ function AdminRegister() {
                       name="phone"
                       placeholder="Enter your phone number"
                       autoComplete="tel"
-                      pattern="[0-9+\-\s()]{7,20}"
                       title="Enter a valid phone number."
-                      required
+                      {...register("phone", { required: "Phone number is required", pattern: { value: /^[6-9]\d{9}$/, message: "Enter a valid 10-digit phone number" }})}
                     />
                   </div>
-                </div>
-
-                {/* Admin Access Key */}
-                <div className="admin-register-field">
-                  <label htmlFor="admin-access-key">Admin Access Key</label>
-
-                  <div className="admin-register-input-wrapper">
-                    <i className="bi bi-key admin-register-input-icon"></i>
-
-                    <input
-                      type="password"
-                      id="admin-access-key"
-                      name="accessKey"
-                      placeholder="Enter your authorized access key"
-                      autoComplete="off"
-                      required
-                    />
-                  </div>
-
-                  <small className="admin-register-hint">
-                    <i className="bi bi-info-circle me-1"></i>
-                    An access key must be verified securely by your backend.
-                  </small>
+                  {errors.phone && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.phone.message} </small>}
                 </div>
 
                 {/* Password */}
@@ -224,8 +211,8 @@ function AdminRegister() {
                       name="password"
                       placeholder="Create a strong password"
                       autoComplete="new-password"
-                      minLength={8}
-                      required
+                      minLength={6}
+                      {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must contain at least 6 characters" }})}
                     />
 
                     <button
@@ -243,10 +230,7 @@ function AdminRegister() {
                       ></i>
                     </button>
                   </div>
-
-                  <small className="admin-register-hint">
-                    Use at least 8 characters.
-                  </small>
+                  {errors.password && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.password.message}</small>}
                 </div>
 
                 {/* Confirm Password */}
@@ -264,8 +248,8 @@ function AdminRegister() {
                       name="confirmPassword"
                       placeholder="Confirm your password"
                       autoComplete="new-password"
-                      minLength={8}
-                      required
+                      minLength={6}
+                      {...register("confirmPassword", { required: "Please confirm your password", validate: (value) => value === watch("password") || "Passwords do not match", })}
                     />
 
                     <button
@@ -287,12 +271,17 @@ function AdminRegister() {
                       ></i>
                     </button>
                   </div>
+                  {errors.confirmPassword && <small className="text-danger" style={{ fontSize: "12px" }}>{errors.confirmPassword.message}</small>}
                 </div>
 
                 {/* Terms */}
                 <div className="admin-register-terms">
                   <label className="admin-register-terms-label">
-                    <input type="checkbox" name="terms" required />
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      {...register("terms", { required: "You must accept the Terms & Conditions", })}
+                    />
 
                     <span className="admin-register-custom-checkbox"></span>
 
@@ -301,6 +290,7 @@ function AdminRegister() {
                       and <Link to="/privacy">Privacy Policy</Link>.
                     </span>
                   </label>
+                  {errors.terms && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.terms.message} </small>}
                 </div>
 
                 {/* Submit */}

@@ -187,12 +187,12 @@ function AdminNavbar() {
                 <div className="admin-navbar-dropdown-divider"></div>
 
                 <Link
-                  to="/admin-dashboard"
+                  to="/admin-dashboard/my-profile"
                   className="admin-navbar-dropdown-link"
                   onClick={closeMenus}
                 >
-                  <i className="bi bi-grid-1x2"></i>
-                  <span>Dashboard</span>
+                  <i className="bi bi-person"></i>
+                  <span>My Profile</span>
                 </Link>
 
                 <Link
@@ -205,12 +205,12 @@ function AdminNavbar() {
                 </Link>
 
                 <Link
-                  to="/admin-dashboard/notifications"
+                  to="/admin-dashboard/settings"
                   className="admin-navbar-dropdown-link"
                   onClick={closeMenus}
                 >
-                  <i className="bi bi-bell"></i>
-                  <span>Notifications</span>
+                  <i className="bi bi-gear"></i>
+                  <span>Account Settings</span>
                 </Link>
 
                 <div className="admin-navbar-dropdown-divider"></div>
@@ -354,12 +354,12 @@ function AdminNavbar() {
           {showProfile && (
             <div className="admin-navbar-mobile-profile-links">
               <Link
-                to="/admin-dashboard"
+                to="/admin-dashboard/my-profile"
                 className="admin-navbar-dropdown-link"
                 onClick={closeMobileMenu}
               >
-                <i className="bi bi-grid-1x2"></i>
-                <span>Dashboard</span>
+                <i className="bi bi-person"></i>
+                <span>My Profile</span>
               </Link>
 
               <Link
@@ -372,12 +372,12 @@ function AdminNavbar() {
               </Link>
 
               <Link
-                to="/admin-dashboard/notifications"
+                to="/admin-dashboard/settings"
                 className="admin-navbar-dropdown-link"
                 onClick={closeMobileMenu}
               >
-                <i className="bi bi-bell"></i>
-                <span>Notifications</span>
+                <i className="bi bi-gear"></i>
+                <span>Account Settings</span>
               </Link>
 
               <button

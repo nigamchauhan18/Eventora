@@ -2,13 +2,47 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/AdminLogin.css";
 
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 function AdminLogin() {
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("Admin login functionality needs to be connected.");
-  };
+  const userDash = useNavigate();
+  const { register, reset, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    try {
+      const storedUser = localStorage.getItem("eventoraAdmin");
+      if (!storedUser) {
+        toast.error("No admin account found. Please create account first.");
+        return;
+      }
+      const adminData = JSON.parse(storedUser);
+      const emailMatch = adminData.email === data.email;
+      const passwordMatch = adminData.password === data.password;
+
+      if (!emailMatch || !passwordMatch) {
+        toast.error("Invalid email or password.");
+        return; 
+      }
+
+      const adminLogin = {
+        email: data.email,
+        isLoggedIn: true
+      };
+      localStorage.setItem("eventoraAdminLogin", JSON.stringify(adminLogin));
+      toast.success("Login successful! Welcome to Eventora.");
+      reset();
+      setTimeout(() => {
+        userDash("/admin-dashboard");
+      }, 1500);
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
+  }
 
   return (
     <div className="eventora-admin-page">
@@ -131,7 +165,7 @@ function AdminLogin() {
               </div>
 
               {/* Login Form */}
-              <form onSubmit={handleSubmit} className="admin-login-form">
+              <form className="admin-login-form" onSubmit={handleSubmit(onSubmit)}>
                 {/* Email */}
                 <div className="admin-field-group">
                   <label htmlFor="admin-email">Email Address</label>
@@ -144,10 +178,11 @@ function AdminLogin() {
                       id="admin-email"
                       name="email"
                       placeholder="admin@example.com"
-                      autoComplete="username"
-                      required
+                      autoComplete="email"
+                      {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Please enter a valid email address" }})}
                     />
                   </div>
+                  {errors.email && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.email.message} </small>}
                 </div>
                 {/* Password */}
                 <div className="admin-field-group">
@@ -164,7 +199,7 @@ function AdminLogin() {
                       name="password"
                       placeholder="Enter your password"
                       autoComplete="current-password"
-                      required
+                      {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must contain at least 6 characters" }})}
                     />
 
                     <button
@@ -182,11 +217,16 @@ function AdminLogin() {
                       ></i>
                     </button>
                   </div>
+                  {errors.password && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.password.message} </small>}
                 </div>
                 {/* Remember Me */}
                 <div className="admin-form-options">
                   <label className="admin-remember-label">
-                    <input type="checkbox" name="rememberMe" />
+                    <input
+                      type="checkbox"
+                      name="remember"
+                      {...register("remember", { required: "Please, check the remember box" })}
+                    />
                     <span className="admin-custom-checkbox"></span>
                     <span>Remember me</span>
                   </label>
@@ -194,6 +234,7 @@ function AdminLogin() {
                   <Link to="/admin-forgot-password" className="admin-forgot-link">
                     Forgot password?
                   </Link>
+                  {errors.remember && <small className="text-danger" style={{ fontSize: "12px" }}> {errors.remember.message} </small>}
                 </div>
                 
                 {/* Submit */}{" "}

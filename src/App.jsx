@@ -1,7 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import './assets/Toast.css';
+
 import Welcome from "./Welcome";
 import Error from "./modules/shares/Error";
 import UserLogin from "./modules/users/UserLogin";
@@ -23,11 +29,35 @@ import Feedbacks from "./modules/users/userDashboard/Feedbacks";
 import About from "./modules/shares/About";
 import MyProfile from "./modules/users/userDashboard/MyProfile";
 import Settings from "./modules/users/userDashboard/Settings";
+
 import AdminLanding from "./modules/admin/adminDashboard/AdminLanding";
+import AdminMain from "./modules/admin/adminDashboard/AdminMain";
+import AdminEvents from "./modules/admin/adminDashboard/AdminEvents";
+import AdminCategories from "./modules/admin/adminDashboard/AdminCategories";
+import AdminUsers from "./modules/admin/adminDashboard/AdminUsers";
+import AdminRegistrations from "./modules/admin/adminDashboard/AdminRegistrations";
+import AdminBookings from "./modules/admin/adminDashboard/AdminBookings";
+import AdminPayments from "./modules/admin/adminDashboard/AdminPayments";
+import AdminReports from "./modules/admin/adminDashboard/AdminReports";
+import AdminNotifications from "./modules/admin/adminDashboard/AdminNotifications";
+import AdminProfile from "./modules/admin/adminDashboard/AdminProfile";
+import AdminSettings from "./modules/admin/adminDashboard/AdminSettings";
 
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
+        toastClassName="eventora-toast"
+        progressClassName="eventora-toast-progress"
+      />
       <Routes>
         <Route path="" element={<Welcome />}></Route>
         <Route path="user-login" element={<UserLogin />}></Route>
@@ -51,8 +81,19 @@ function App() {
           <Route path="settings" element={<Settings />}></Route>
         </Route>
         <Route path="admin-dashboard" element={<AdminLanding />}>
+          <Route path="" element={<AdminMain />}></Route>
+          <Route path="events" element={<AdminEvents />}></Route>
+          <Route path="categories" element={<AdminCategories />}></Route>
+          <Route path="users" element={<AdminUsers />}></Route>
+          <Route path="registrations" element={<AdminRegistrations />}></Route>
+          <Route path="bookings" element={<AdminBookings />}></Route>
+          <Route path="payments" element={<AdminPayments />}></Route>
+          <Route path="reports" element={<AdminReports />}></Route>
+          <Route path="reports" element={<AdminReports />}></Route>
+          <Route path="notifications" element={<AdminNotifications />}></Route>
+          <Route path="my-profile" element={<AdminProfile />}></Route>
+          <Route path="settings" element={<AdminSettings />}></Route>
           <Route path="*" element={<Error />}></Route>
-
         </Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>

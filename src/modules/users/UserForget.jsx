@@ -1,10 +1,44 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "../../assets/ForgotPassword.css";
 
+import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 function ForgotPassword() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert("Password recovery functionality needs to be connected.");
+   const [showPassword, setShowPassword] = useState(false);
+
+   const userDash = useNavigate();
+
+   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   
+   const onSubmit = (data) => {
+    try {
+      const storedUser = localStorage.getItem("eventoraUser");
+
+      if (!storedUser) {
+        toast.error("No registered account found.");
+        return;
+      }
+      const user = JSON.parse(storedUser);
+      const emailMatch = user.email === data.email;
+      if (!emailMatch) {
+        toast.error("Email address is not registered.");
+        return;
+      }
+      user.password = data.password;
+      user.confirmPassword = data.password;
+      localStorage.setItem("eventoraUser", JSON.stringify(user));
+      toast.success("Password changed successfully!");
+      reset();
+      setTimeout(() => {
+        userDash('/user-login');
+      }, 1500);
+    } catch (error) {
+      console.error("Password update failed:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -121,7 +155,7 @@ function ForgotPassword() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="forgot-form">
+              <form className="forgot-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="forgot-field-group">
                   <label htmlFor="forgot-email">Email Address</label>
 
@@ -134,7 +168,7 @@ function ForgotPassword() {
                       name="email"
                       placeholder="Enter your registered email"
                       autoComplete="email"
-                      required
+                      {...register("email", { required: "Email is required.", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Please enter a valid email address." }})}
                     />
                   </div>
 
@@ -142,6 +176,39 @@ function ForgotPassword() {
                     <i className="bi bi-info-circle me-1"></i>
                     Use the email address linked to your account.
                   </small>
+                  {errors.email && <small className="text-danger" style={{ fontSize: '12px' }}>{errors.email.message}</small>}
+                </div>
+
+                <div className="forgot-field-group">
+                  <label htmlFor="forgot-password">New Password</label>
+
+                  <div className="forgot-input-wrapper">
+                    <i className="bi bi-lock forgot-input-icon"></i>
+
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="forgot-password"
+                      name="password"
+                      placeholder="Enter your new password"
+                      autoComplete="password"
+                      {...register("password", { required: "Password is required.", minLength: { value: 6, message: "Password must contain at least 6 characters." }})}
+                    />
+                    <button
+                      type="button"
+                      className="register-password-toggle"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={
+                        showPassword ? "Hide password" : "Show password"
+                      }
+                    >
+                      <i
+                        className={`bi ${
+                          showPassword ? "bi-eye-slash" : "bi-eye"
+                        }`}
+                      ></i>
+                    </button>
+                  </div>
+                  {errors.password && <small className="text-danger" style={{ fontSize: '12px' }}>{errors.password.message}</small> }
                 </div>
 
                 <button type="submit" className="forgot-submit-btn">
