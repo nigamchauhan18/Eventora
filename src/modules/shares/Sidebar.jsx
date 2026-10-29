@@ -26,7 +26,7 @@ function Sidebar() {
           path: "/user-dashboard/calendar",
         },
         {
-          name: "Registrations",
+          name: "Registration",
           icon: "bi-clipboard-check",
           path: "/user-dashboard/registrations",
         },

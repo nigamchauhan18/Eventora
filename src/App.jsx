@@ -29,6 +29,7 @@ import Feedbacks from "./modules/users/userDashboard/Feedbacks";
 import About from "./modules/shares/About";
 import MyProfile from "./modules/users/userDashboard/MyProfile";
 import Settings from "./modules/users/userDashboard/Settings";
+import Event from "./modules/users/userDashboard/Event";
 
 import AdminLanding from "./modules/admin/adminDashboard/AdminLanding";
 import AdminMain from "./modules/admin/adminDashboard/AdminMain";
@@ -69,8 +70,9 @@ function App() {
         <Route path="user-dashboard" element={<LandingPage />}>
           <Route path="" element={<MainPage />}></Route>
           <Route path="explore-events" element={<ExploreEvents />}></Route>
+          <Route path="explore-events/event-details/:id" element={<Event />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
-          <Route path="registrations" element={<Registrations />}></Route>
+          <Route path="registration/:id" element={<Registrations />}></Route>
           <Route path="my-bookings" element={<MyBookings />}></Route>
           <Route path="my-tickets" element={<MyTickets />}></Route>
           <Route path="gallery" element={<Gallery />}></Route>

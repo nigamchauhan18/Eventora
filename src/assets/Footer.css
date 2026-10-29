@@ -3,7 +3,6 @@
     background: #ffffff;
     color: #292344;
     padding-top: 55px;
-    margin-top: 40px;
     border-top: 1px solid #eee9fb;
     box-shadow: 0 -4px 20px rgba(121, 82, 232, 0.04);
 }
@@ -230,7 +229,6 @@
 @media (max-width: 576px) {
     .eventora-footer {
         padding-top: 35px;
-        margin-top: 25px;
     }
 
     .eventora-footer-brand {

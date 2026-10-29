@@ -1,0 +1,837 @@
+[
+  {
+    "id": 1,
+    "title": "Neon Nights Music Festival",
+    "category": "Music",
+    "date": "2026-11-15",
+    "time": "6:00 PM",
+    "endTime": "11:00 PM",
+    "location": "Mumbai, Maharashtra",
+    "venue": "Jio World Garden",
+    "address": "Bandra Kurla Complex, Mumbai, Maharashtra, India",
+    "price": 1499,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "An electrifying music festival featuring live performances and DJs.",
+    "description": "Experience an unforgettable evening of live music, talented performers, energetic DJs, spectacular lighting, and an exciting festival atmosphere.",
+    "organizer": {
+      "name": "Eventora Music Productions",
+      "email": "music@example.com",
+      "phone": "+91 90000 10001"
+    },
+    "duration": "5 hours",
+    "capacity": 5000,
+    "availableTickets": 1200,
+    "highlights": [
+      "Live music performances",
+      "Professional DJ sets",
+      "Stage lighting",
+      "Food stalls"
+    ],
+    "facilities": ["Parking", "Food stalls", "First aid", "Restrooms"],
+    "ageLimit": "18+",
+    "ticketTypes": [
+      { "name": "General Admission", "price": 1499 },
+      { "name": "VIP Pass", "price": 2999 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Live Music", "Festival", "DJ", "Entertainment"]
+  },
+  {
+    "id": 2,
+    "title": "Future of Technology Summit",
+    "category": "Technology",
+    "date": "2026-11-20",
+    "time": "10:00 AM",
+    "endTime": "5:00 PM",
+    "location": "Bengaluru, Karnataka",
+    "venue": "Bangalore International Exhibition Centre",
+    "address": "Tumkur Road, Bengaluru, Karnataka, India",
+    "price": 999,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Explore emerging technologies and innovations shaping the digital future.",
+    "description": "Discover artificial intelligence, cloud computing, robotics, software innovation, and digital transformation through expert talks, demonstrations, and collaborative discussions.",
+    "organizer": {
+      "name": "Eventora Tech Events",
+      "email": "technology@example.com",
+      "phone": "+91 90000 10002"
+    },
+    "duration": "7 hours",
+    "capacity": 2000,
+    "availableTickets": 650,
+    "highlights": [
+      "Technology keynote sessions",
+      "AI demonstrations",
+      "Industry networking",
+      "Innovation showcases"
+    ],
+    "facilities": ["Wi-Fi", "Parking", "Lunch area", "Restrooms"],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "Standard Pass", "price": 999 },
+      { "name": "Professional Pass", "price": 1999 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Technology", "AI", "Innovation", "Networking"]
+  },
+  {
+    "id": 3,
+    "title": "Creative Arts Exhibition",
+    "category": "Art & Culture",
+    "date": "2026-11-22",
+    "time": "11:00 AM",
+    "endTime": "6:00 PM",
+    "location": "New Delhi, Delhi",
+    "venue": "National Gallery of Modern Art",
+    "address": "Jaipur House, India Gate, New Delhi, India",
+    "price": 499,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Discover inspiring paintings, sculptures, and contemporary artwork.",
+    "description": "Explore a curated exhibition of paintings, sculptures, contemporary art, and creative installations. Meet fellow art enthusiasts and discover different artistic styles.",
+    "organizer": {
+      "name": "Eventora Arts Collective",
+      "email": "arts@example.com",
+      "phone": "+91 90000 10003"
+    },
+    "duration": "7 hours",
+    "capacity": 800,
+    "availableTickets": 300,
+    "highlights": [
+      "Art exhibitions",
+      "Contemporary paintings",
+      "Sculpture displays",
+      "Artist interactions"
+    ],
+    "facilities": [
+      "Visitor assistance",
+      "Restrooms",
+      "Accessibility support",
+      "Refreshment area"
+    ],
+    "ageLimit": "All ages",
+    "ticketTypes": [
+      { "name": "General Entry", "price": 499 },
+      { "name": "Guided Tour", "price": 799 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Art", "Painting", "Culture", "Exhibition"]
+  },
+  {
+    "id": 4,
+    "title": "Business Leaders Conference",
+    "category": "Business",
+    "date": "2026-11-25",
+    "time": "9:30 AM",
+    "endTime": "5:30 PM",
+    "location": "Pune, Maharashtra",
+    "venue": "JW Marriott Pune",
+    "address": "Senapati Bapat Road, Pune, Maharashtra, India",
+    "price": 1999,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Connect with business leaders and explore strategies for growth.",
+    "description": "Join entrepreneurs, executives, and industry professionals for discussions about leadership, business strategy, innovation, market trends, and professional networking.",
+    "organizer": {
+      "name": "Eventora Business Network",
+      "email": "business@example.com",
+      "phone": "+91 90000 10004"
+    },
+    "duration": "8 hours",
+    "capacity": 1000,
+    "availableTickets": 250,
+    "highlights": [
+      "Keynote presentations",
+      "Leadership discussions",
+      "Networking sessions",
+      "Business strategy workshops"
+    ],
+    "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+    "ageLimit": "18+",
+    "ticketTypes": [
+      { "name": "Standard Pass", "price": 1999 },
+      { "name": "Executive Pass", "price": 3499 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Business", "Leadership", "Networking", "Entrepreneurship"]
+  },
+  {
+    "id": 5,
+    "title": "Royal Garden Wedding Showcase",
+    "category": "Wedding",
+    "date": "2026-12-01",
+    "time": "4:00 PM",
+    "endTime": "9:00 PM",
+    "location": "Jaipur, Rajasthan",
+    "venue": "Fairmont Jaipur",
+    "address": "2, Riico, Kukas, Jaipur, Rajasthan, India",
+    "price": 799,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Discover elegant wedding themes, decoration ideas, and celebration trends.",
+    "description": "Explore wedding inspiration through floral designs, stage decoration, photography displays, fashion showcases, catering ideas, and creative celebration concepts.",
+    "organizer": {
+      "name": "Eventora Wedding Experiences",
+      "email": "weddings@example.com",
+      "phone": "+91 90000 10005"
+    },
+    "duration": "5 hours",
+    "capacity": 600,
+    "availableTickets": 180,
+    "highlights": [
+      "Wedding decor displays",
+      "Floral arrangements",
+      "Photography showcases",
+      "Wedding planning consultations"
+    ],
+    "facilities": [
+      "Parking",
+      "Refreshments",
+      "Restrooms",
+      "Accessibility support"
+    ],
+    "ageLimit": "All ages",
+    "ticketTypes": [
+      { "name": "General Entry", "price": 799 },
+      { "name": "Couple Pass", "price": 1299 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Wedding", "Decoration", "Celebration", "Wedding Planning"]
+  },
+  {
+    "id": 6,
+    "title": "Startup Founders Meetup",
+    "category": "Business",
+    "date": "2026-12-03",
+    "time": "5:00 PM",
+    "endTime": "8:00 PM",
+    "location": "Hyderabad, Telangana",
+    "venue": "T-Hub",
+    "address": "Raidurg, Hyderabad, Telangana, India",
+    "price": 599,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Meet startup founders and exchange ideas about building businesses.",
+    "description": "Connect with startup founders, aspiring entrepreneurs, mentors, and innovators. Discuss product development, funding, customer discovery, and strategies for growing a business.",
+    "organizer": {
+      "name": "Eventora Startup Community",
+      "email": "startups@example.com",
+      "phone": "+91 90000 10006"
+    },
+    "duration": "3 hours",
+    "capacity": 300,
+    "availableTickets": 90,
+    "highlights": [
+      "Founder introductions",
+      "Startup discussions",
+      "Mentor networking",
+      "Idea-sharing sessions"
+    ],
+    "facilities": ["Wi-Fi", "Networking area", "Refreshments", "Seating"],
+    "ageLimit": "18+",
+    "ticketTypes": [
+      { "name": "Regular Entry", "price": 599 },
+      { "name": "Founder Pass", "price": 999 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Startup", "Business", "Founders", "Networking"]
+  },
+  {
+    "id": 7,
+    "title": "Classical Music Evening",
+    "category": "Music",
+    "date": "2026-12-05",
+    "time": "7:00 PM",
+    "endTime": "9:30 PM",
+    "location": "Kolkata, West Bengal",
+    "venue": "Rabindra Sadan",
+    "address": "A.J.C. Bose Road, Kolkata, West Bengal, India",
+    "price": 699,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Enjoy a soulful evening of classical music and traditional melodies.",
+    "description": "Experience a musical evening featuring classical compositions, expressive performances, traditional instruments, and a welcoming atmosphere for music enthusiasts.",
+    "organizer": {
+      "name": "Eventora Cultural Productions",
+      "email": "culture@example.com",
+      "phone": "+91 90000 10007"
+    },
+    "duration": "2.5 hours",
+    "capacity": 700,
+    "availableTickets": 220,
+    "highlights": [
+      "Classical music performances",
+      "Traditional instruments",
+      "Live stage presentation",
+      "Cultural appreciation"
+    ],
+    "facilities": [
+      "Seating",
+      "Parking nearby",
+      "Restrooms",
+      "Refreshment area"
+    ],
+    "ageLimit": "All ages",
+    "ticketTypes": [
+      { "name": "Standard Seat", "price": 699 },
+      { "name": "Premium Seat", "price": 1199 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": [
+      "Classical Music",
+      "Culture",
+      "Live Performance",
+      "Traditional Music"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "AI and Machine Learning Workshop",
+    "category": "Technology",
+    "date": "2026-12-07",
+    "time": "10:00 AM",
+    "endTime": "4:00 PM",
+    "location": "Chennai, Tamil Nadu",
+    "venue": "IIT Madras Research Park",
+    "address": "Kanagam, Taramani, Chennai, Tamil Nadu, India",
+    "price": 1299,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Learn practical AI and machine learning concepts through guided sessions.",
+    "description": "Explore artificial intelligence fundamentals, machine learning workflows, practical demonstrations, data preparation, and real-world applications through guided learning sessions.",
+    "organizer": {
+      "name": "Eventora AI Learning",
+      "email": "ai@example.com)",
+      "phone": "+91 90000 10008"
+    },
+    "duration": "6 hours",
+    "capacity": 250,
+    "availableTickets": 75,
+    "highlights": [
+      "AI fundamentals",
+      "Machine learning demonstrations",
+      "Practical exercises",
+      "Industry applications"
+    ],
+    "facilities": [
+      "Wi-Fi",
+      "Workshop seating",
+      "Refreshments",
+      "Power outlets"
+    ],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "Workshop Pass", "price": 1299 },
+      { "name": "Workshop Plus", "price": 1799 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Workshop",
+      "Technology"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Photography Masterclass",
+    "category": "Art & Culture",
+    "date": "2026-12-09",
+    "time": "2:00 PM",
+    "endTime": "6:00 PM",
+    "location": "Goa",
+    "venue": "Kala Academy",
+    "address": "Campal, Panaji, Goa, India",
+    "price": 899,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Improve your photography skills through practical demonstrations.",
+    "description": "Learn composition, lighting, framing, storytelling, and camera techniques through demonstrations, guided exercises, and discussions about creative photography.",
+    "organizer": {
+      "name": "Eventora Photography Club",
+      "email": "photography@example.com",
+      "phone": "+91 90000 10009"
+    },
+    "duration": "4 hours",
+    "capacity": 150,
+    "availableTickets": 45,
+    "highlights": [
+      "Photography techniques",
+      "Lighting demonstrations",
+      "Composition exercises",
+      "Creative feedback"
+    ],
+    "facilities": [
+      "Workshop seating",
+      "Refreshments",
+      "Restrooms",
+      "Practice area"
+    ],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "Standard Pass", "price": 899 },
+      { "name": "Hands-on Pass", "price": 1299 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Photography", "Masterclass", "Creative Arts", "Camera"]
+  },
+  {
+    "id": 10,
+    "title": "Digital Marketing Conference",
+    "category": "Business",
+    "date": "2026-12-11",
+    "time": "9:00 AM",
+    "endTime": "5:00 PM",
+    "location": "Ahmedabad, Gujarat",
+    "venue": "Gujarat University Convention Centre",
+    "address": "Navrangpura, Ahmedabad, Gujarat, India",
+    "price": 1499,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Explore modern marketing strategies and techniques for digital growth.",
+    "description": "Discover search engine optimization, content marketing, social media strategy, advertising analytics, brand development, and customer acquisition techniques.",
+    "organizer": {
+      "name": "Eventora Digital Business",
+      "email": "marketing@example.com",
+      "phone": "+91 90000 10010"
+    },
+    "duration": "8 hours",
+    "capacity": 800,
+    "availableTickets": 240,
+    "highlights": [
+      "SEO sessions",
+      "Social media strategy",
+      "Marketing analytics",
+      "Brand-building workshops"
+    ],
+    "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "Standard Pass", "price": 1499 },
+      { "name": "Professional Pass", "price": 2499 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Digital Marketing", "SEO", "Social Media", "Business"]
+  },
+  {
+    "id": 11,
+    "title": "Indie Rock Live Concert",
+    "category": "Music",
+    "date": "2026-12-13",
+    "time": "7:30 PM",
+    "endTime": "10:30 PM",
+    "location": "Mumbai, Maharashtra",
+    "venue": "Phoenix Marketcity",
+    "address": "Kurla West, Mumbai, Maharashtra, India",
+    "price": 1199,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Discover emerging indie rock bands and energetic live performances.",
+    "description": "Enjoy an energetic concert featuring independent rock music, original compositions, alternative hits, live instruments, and a lively atmosphere for music lovers.",
+    "organizer": {
+      "name": "Eventora Live Music",
+      "email": "concerts@example.com",
+      "phone": "+91 90000 10011"
+    },
+    "duration": "3 hours",
+    "capacity": 2500,
+    "availableTickets": 700,
+    "highlights": [
+      "Live indie bands",
+      "Original songs",
+      "Rock performances",
+      "Festival atmosphere"
+    ],
+    "facilities": ["Food stalls", "Parking", "First aid", "Restrooms"],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "General Admission", "price": 1199 },
+      { "name": "Front Stage", "price": 2199 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Indie Rock", "Concert", "Live Music", "Bands"]
+  },
+  {
+    "id": 12,
+    "title": "Cloud Computing Bootcamp",
+    "category": "Technology",
+    "date": "2026-12-15",
+    "time": "9:30 AM",
+    "endTime": "4:30 PM",
+    "location": "Bengaluru, Karnataka",
+    "venue": "Manyata Tech Park",
+    "address": "Nagavara, Bengaluru, Karnataka, India",
+    "price": 1799,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Understand cloud architecture, deployment, and infrastructure fundamentals.",
+    "description": "Learn cloud computing fundamentals, architecture patterns, deployment concepts, scalability, infrastructure management, and cloud security through demonstrations and guided exercises.",
+    "organizer": {
+      "name": "Eventora Cloud Academy",
+      "email": "cloud@example.com",
+      "phone": "+91 90000 10012"
+    },
+    "duration": "7 hours",
+    "capacity": 200,
+    "availableTickets": 60,
+    "highlights": [
+      "Cloud architecture",
+      "Deployment strategies",
+      "Infrastructure concepts",
+      "Practical demonstrations"
+    ],
+    "facilities": [
+      "Wi-Fi",
+      "Power outlets",
+      "Workshop seating",
+      "Refreshments"
+    ],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "Bootcamp Pass", "price": 1799 },
+      { "name": "Advanced Pass", "price": 2499 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Cloud Computing", "DevOps", "Infrastructure", "Technology"]
+  },
+  {
+    "id": 13,
+    "title": "Contemporary Dance Showcase",
+    "category": "Art & Culture",
+    "date": "2026-12-17",
+    "time": "6:30 PM",
+    "endTime": "9:00 PM",
+    "location": "New Delhi, Delhi",
+    "venue": "Kamani Auditorium",
+    "address": "Copernicus Marg, New Delhi, India",
+    "price": 599,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Experience expressive choreography and creative dance performances.",
+    "description": "Enjoy a showcase of contemporary dance featuring expressive choreography, coordinated movement, artistic storytelling, and performances by talented dancers.",
+    "organizer": {
+      "name": "Eventora Performing Arts",
+      "email": "dance@example.com",
+      "phone": "+91 90000 10013"
+    },
+    "duration": "2.5 hours",
+    "capacity": 600,
+    "availableTickets": 200,
+    "highlights": [
+      "Contemporary dance",
+      "Creative choreography",
+      "Stage performances",
+      "Artistic storytelling"
+    ],
+    "facilities": [
+      "Reserved seating",
+      "Restrooms",
+      "Visitor assistance",
+      "Parking nearby"
+    ],
+    "ageLimit": "All ages",
+    "ticketTypes": [
+      { "name": "Standard Seat", "price": 599 },
+      { "name": "Premium Seat", "price": 999 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Dance", "Performing Arts", "Culture", "Live Show"]
+  },
+  {
+    "id": 14,
+    "title": "Entrepreneurship Growth Forum",
+    "category": "Business",
+    "date": "2026-12-19",
+    "time": "10:00 AM",
+    "endTime": "4:00 PM",
+    "location": "Indore, Madhya Pradesh",
+    "venue": "Brilliant Convention Centre",
+    "address": "Scheme 78, Indore, Madhya Pradesh, India",
+    "price": 899,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Learn about funding, customer acquisition, and business expansion.",
+    "description": "Join entrepreneurs and business experts to discuss startup development, funding opportunities, customer acquisition, product strategy, and sustainable business growth.",
+    "organizer": {
+      "name": "Eventora Entrepreneurship Network",
+      "email": "founders@example.com",
+      "phone": "+91 90000 10014"
+    },
+    "duration": "6 hours",
+    "capacity": 500,
+    "availableTickets": 150,
+    "highlights": [
+      "Entrepreneurship talks",
+      "Funding discussions",
+      "Growth strategies",
+      "Networking opportunities"
+    ],
+    "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+    "ageLimit": "18+",
+    "ticketTypes": [
+      { "name": "Standard Pass", "price": 899 },
+      { "name": "Networking Pass", "price": 1499 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Entrepreneurship", "Startup", "Funding", "Business Growth"]
+  },
+  {
+    "id": 15,
+    "title": "Winter Food Carnival",
+    "category": "Food & Drink",
+    "date": "2026-12-20",
+    "time": "12:00 PM",
+    "endTime": "9:00 PM",
+    "location": "Pune, Maharashtra",
+    "venue": "Amanora Town Centre",
+    "address": "Hadapsar, Pune, Maharashtra, India",
+    "price": 399,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Taste street food, regional specialties, desserts, and creative dishes.",
+    "description": "Explore a lively food carnival featuring regional cuisine, street food, international flavors, desserts, cooking demonstrations, and opportunities to discover local food vendors.",
+    "organizer": {
+      "name": "Eventora Food Experiences",
+      "email": "food@example.com",
+      "phone": "+91 90000 10015"
+    },
+    "duration": "9 hours",
+    "capacity": 3000,
+    "availableTickets": 1000,
+    "highlights": [
+      "Street food stalls",
+      "Regional specialties",
+      "Dessert counters",
+      "Cooking demonstrations"
+    ],
+    "facilities": ["Seating areas", "Drinking water", "Parking", "Restrooms"],
+    "ageLimit": "All ages",
+    "ticketTypes": [
+      { "name": "Entry Pass", "price": 399 },
+      { "name": "Food Explorer Pass", "price": 799 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Food Festival", "Street Food", "Cuisine", "Desserts"]
+  },
+  {
+    "id": 16,
+    "title": "New Year DJ Bash",
+    "category": "Music",
+    "date": "2026-12-31",
+    "time": "8:00 PM",
+    "endTime": "12:30 AM",
+    "location": "Goa",
+    "venue": "Candolim Beach Event Arena",
+    "address": "Candolim, North Goa, Goa, India",
+    "price": 2499,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Celebrate the New Year with DJs, dance music, and festive entertainment.",
+    "description": "Welcome the New Year with energetic DJ performances, dance music, immersive lighting, countdown celebrations, and a vibrant festival atmosphere.",
+    "organizer": {
+      "name": "Eventora Nightlife",
+      "email": "nightlife@example.com",
+      "phone": "+91 90000 10016"
+    },
+    "duration": "4.5 hours",
+    "capacity": 4000,
+    "availableTickets": 900,
+    "highlights": [
+      "Live DJ performances",
+      "New Year countdown",
+      "Dance floor",
+      "Festival lighting"
+    ],
+    "facilities": [
+      "Food stalls",
+      "First aid",
+      "Restrooms",
+      "Security assistance"
+    ],
+    "ageLimit": "18+",
+    "ticketTypes": [
+      { "name": "General Admission", "price": 2499 },
+      { "name": "VIP Pass", "price": 4999 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["New Year", "DJ", "Nightlife", "Music Festival"]
+  },
+  {
+    "id": 17,
+    "title": "Web Development Hackathon",
+    "category": "Technology",
+    "date": "2027-01-05",
+    "time": "9:00 AM",
+    "endTime": "6:00 PM",
+    "location": "Noida, Uttar Pradesh",
+    "venue": "STPI Noida",
+    "address": "Sector 29, Noida, Uttar Pradesh, India",
+    "price": 499,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Collaborate with developers to build web applications and solve coding challenges.",
+    "description": "Participate in a collaborative hackathon where developers design, build, and present creative web applications. Explore frontend development, APIs, teamwork, and rapid prototyping.",
+    "organizer": {
+      "name": "Eventora Developer Community",
+      "email": "developers@example.com",
+      "phone": "+91 90000 10017"
+    },
+    "duration": "9 hours",
+    "capacity": 300,
+    "availableTickets": 100,
+    "highlights": [
+      "Team coding challenges",
+      "Web application development",
+      "Project presentations",
+      "Developer networking"
+    ],
+    "facilities": ["Wi-Fi", "Power outlets", "Work tables", "Refreshments"],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "Participant Pass", "price": 499 },
+      { "name": "Team Pass", "price": 1499 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Hackathon", "Web Development", "React", "Programming"]
+  },
+  {
+    "id": 18,
+    "title": "Handmade Crafts Fair",
+    "category": "Art & Culture",
+    "date": "2027-01-08",
+    "time": "11:00 AM",
+    "endTime": "7:00 PM",
+    "location": "Jaipur, Rajasthan",
+    "venue": "Jawahar Kala Kendra",
+    "address": "Jawahar Lal Nehru Marg, Jaipur, Rajasthan, India",
+    "price": 199,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Discover handcrafted products, traditional crafts, and local artists.",
+    "description": "Browse handcrafted decorations, traditional textiles, artisan products, handmade accessories, and creative displays while discovering the work of local craftspeople.",
+    "organizer": {
+      "name": "Eventora Craft Collective",
+      "email": "crafts@example.com",
+      "phone": "+91 90000 10018"
+    },
+    "duration": "8 hours",
+    "capacity": 1500,
+    "availableTickets": 600,
+    "highlights": [
+      "Handmade products",
+      "Artisan stalls",
+      "Craft demonstrations",
+      "Traditional designs"
+    ],
+    "facilities": [
+      "Shopping areas",
+      "Parking",
+      "Restrooms",
+      "Refreshment stalls"
+    ],
+    "ageLimit": "All ages",
+    "ticketTypes": [
+      { "name": "General Entry", "price": 199 },
+      { "name": "Workshop Entry", "price": 499 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Handicrafts", "Artisans", "Culture", "Shopping"]
+  },
+  {
+    "id": 19,
+    "title": "Investment and Finance Expo",
+    "category": "Business",
+    "date": "2027-01-10",
+    "time": "10:00 AM",
+    "endTime": "5:00 PM",
+    "location": "Mumbai, Maharashtra",
+    "venue": "Bombay Exhibition Centre",
+    "address": "Goregaon East, Mumbai, Maharashtra, India",
+    "price": 1299,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Explore financial planning, investment fundamentals, and fintech innovations.",
+    "description": "Learn about financial planning, investment principles, fintech applications, risk awareness, budgeting, and emerging developments in financial services through educational sessions.",
+    "organizer": {
+      "name": "Eventora Finance Forum",
+      "email": "finance@example.com",
+      "phone": "+91 90000 10019"
+    },
+    "duration": "7 hours",
+    "capacity": 1000,
+    "availableTickets": 300,
+    "highlights": [
+      "Finance seminars",
+      "Fintech demonstrations",
+      "Financial planning sessions",
+      "Industry networking"
+    ],
+    "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+    "ageLimit": "18+",
+    "ticketTypes": [
+      { "name": "Standard Pass", "price": 1299 },
+      { "name": "Professional Pass", "price": 1999 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Finance", "Investment Education", "Fintech", "Planning"]
+  },
+  {
+    "id": 20,
+    "title": "Healthy Living Fitness Fest",
+    "category": "Health & Fitness",
+    "date": "2027-01-12",
+    "time": "7:00 AM",
+    "endTime": "12:00 PM",
+    "location": "Chandigarh",
+    "venue": "Sector 17 Parade Ground",
+    "address": "Sector 17, Chandigarh, India",
+    "price": 299,
+    "currency": "INR",
+    "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
+    "shortDescription": "Join fitness activities, wellness sessions, and healthy lifestyle workshops.",
+    "description": "Take part in group workouts, fitness demonstrations, wellness discussions, movement sessions, and activities designed to encourage healthy lifestyle habits.",
+    "organizer": {
+      "name": "Eventora Wellness Club",
+      "email": "wellness@example.com",
+      "phone": "+91 90000 10020"
+    },
+    "duration": "5 hours",
+    "capacity": 1000,
+    "availableTickets": 400,
+    "highlights": [
+      "Group workouts",
+      "Fitness demonstrations",
+      "Wellness activities",
+      "Healthy lifestyle sessions"
+    ],
+    "facilities": ["Drinking water", "First aid", "Changing area", "Restrooms"],
+    "ageLimit": "16+",
+    "ticketTypes": [
+      { "name": "General Entry", "price": 299 },
+      { "name": "Activity Pass", "price": 599 }
+    ],
+    "bookingOpen": true,
+    "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
+    "tags": ["Fitness", "Wellness", "Exercise", "Healthy Living"]
+  }
+]
