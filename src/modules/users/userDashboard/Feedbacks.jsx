@@ -37,7 +37,6 @@ const Feedbacks = () => {
       message: message.trim(),
       date: new Date().toISOString().split('T')[0],
     };
-    console.log(newFeedback);
     const updatedFeedbacks = [newFeedback, ...feedbacks];
     setFeedbacks(updatedFeedbacks);    
     localStorage.setItem("eventoraFeedbacks", JSON.stringify(updatedFeedbacks));
@@ -57,7 +56,7 @@ const Feedbacks = () => {
   for (const item of feedbacks) {
     totalRating += item.rating;
   }
-  const averageRating = feedbacks.length > 0 ? (totalRating / feedbacks.length.toFixed(1)) : '0.0';
+  const averageRating = feedbacks.length > 0 ? (totalRating / feedbacks.length).toFixed(1) : '0.0';
 
   const deleteFeedback = (id) => {
     const updatedFeedbacks = feedbacks.filter((item) => item.id !== id);
