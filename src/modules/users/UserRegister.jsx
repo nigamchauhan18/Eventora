@@ -21,8 +21,7 @@ function UserRegister() {
       toast.success("Account created successfully!");
       reset();
       setTimeout(() => {
-        userDash('/user-dashboard');
-        toast.success("Welcome to Eventora! Your account is ready.");
+        userDash('/user-login');
       }, 1500);
     } catch (error) {
       console.error("Registration failed:", error);

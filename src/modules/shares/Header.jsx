@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../../assets/Navbar.css";
+import { toast } from "react-toastify";
 
 function UserDashboardNavbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -8,27 +9,42 @@ function UserDashboardNavbar() {
   const [showProfile, setShowProfile] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('eventoraUser')));
+
+  const welcome = useNavigate();
+
+  const userData = () => {
+    const userDetails = user;
+    setUser(userDetails);    
+  }
+  useEffect(() => {
+    userData();
+  }, [])
+
+  const userAvatar = () => {
+    return user.fullName.split(' ').map(word => word[0]).join('').toUpperCase();
+  }
+  userAvatar();
+  
   const handleSearch = (event) => {
     event.preventDefault();
-
     if (searchQuery.trim()) {
-      // Connect this to your event search functionality.
       alert(`Searching for: ${searchQuery}`);
     }
   };
-
   const handleLogout = () => {
-    // Connect this to your authentication system.
-    alert("Logout functionality needs to be connected.");
-    setShowProfile(false);
-    setShowMobileMenu(false);
+    setTimeout(() => {
+      localStorage.removeItem('eventoraLogin');
+      toast.error('Logout Successfully!');
+      welcome('/');
+      setShowProfile(false);
+      setShowMobileMenu(false);
+    }, 700);
   };
-
   const closeMenus = () => {
     setShowNotifications(false);
     setShowProfile(false);
   };
-
   const toggleMobileMenu = () => {
     setShowMobileMenu((previous) => !previous);
     closeMenus();
@@ -139,11 +155,11 @@ function UserDashboardNavbar() {
               aria-label="User profile menu"
               aria-expanded={showProfile}
             >
-              <span className="dashboard-profile-avatar">U</span>
+              <span className="dashboard-profile-avatar">{userAvatar()}</span>
 
               <span className="dashboard-profile-info">
-                <span className="dashboard-profile-name">User Name</span>
-                <span className="dashboard-profile-role">Member Account</span>
+                <span className="dashboard-profile-name">{user.fullName}</span>
+                <span className="dashboard-profile-role">User Account</span>
               </span>
 
               <i
@@ -156,11 +172,11 @@ function UserDashboardNavbar() {
             {showProfile && (
               <div className="dashboard-navbar-dropdown dashboard-profile-dropdown">
                 <div className="dashboard-profile-dropdown-header">
-                  <span className="dashboard-profile-avatar large">U</span>
+                  <span className="dashboard-profile-avatar large">{userAvatar()}</span>
 
                   <div>
-                    <h6>User Name</h6>
-                    <p>user@example.com</p>
+                    <h6>{user.fullName}</h6>
+                    <p>{user.email}</p>
                   </div>
                 </div>
 
@@ -303,11 +319,11 @@ function UserDashboardNavbar() {
             aria-expanded={showProfile}
           >
             <span className="dashboard-mobile-item-left">
-              <span className="dashboard-profile-avatar">U</span>
+              <span className="dashboard-profile-avatar">{userAvatar()}</span>
 
               <span className="dashboard-mobile-profile-text">
-                <strong>User Name</strong>
-                <small>user@example.com</small>
+                <strong>{user.fullName}</strong>
+                <small>{user.email}</small>
               </span>
             </span>
 

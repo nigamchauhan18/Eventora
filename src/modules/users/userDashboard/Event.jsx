@@ -319,7 +319,7 @@ const Event = () => {
 
               {eventDetails.bookingOpen ? (
                 <Link
-                  to={`/user-dashboard/registrations/${eventDetails.id}`}
+                  to={`/user-dashboard/explore-events/event-details/${eventDetails.id}`}
                   className="event-book-now-btn"
                 >
                   Book Tickets

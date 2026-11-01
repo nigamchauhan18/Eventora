@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../../assets/Sidebar.css";
+import { toast } from "react-toastify";
 
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const welcome = useNavigate();
 
   const menuItems = [
     {
@@ -65,8 +68,11 @@ function Sidebar() {
   ];
 
   const handleLogout = () => {
-    // Connect this button to your authentication system.
-    alert("Logout functionality needs to be connected.");
+    setTimeout(() => {
+      localStorage.removeItem('eventoraLogin');
+      toast.error('Logout Successfully!');
+      welcome('/');
+    }, 700);
     closeMobileSidebar();
   };
 
