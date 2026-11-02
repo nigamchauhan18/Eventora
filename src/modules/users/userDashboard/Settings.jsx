@@ -1,109 +1,87 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../../../assets/Settings.css";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Settings = () => {
+  const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState("general");
   const [showPasswordForm, setShowPasswordForm] = useState(false);
 
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("eventoraUser") || "null"),
-  );
-
-  const [formData, setFormData] = useState({
-    fullName: user?.fullName || "",
-    email: user?.email || "",
-    phone: user?.phone || "",
-  });
-
-  const [passwordData, setPasswordData] = useState({
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
-  });
-
-  const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("");
-
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  // Menu Items
   const menuItems = [
     { id: "general", icon: "bi-person", label: "General" },
     { id: "security", icon: "bi-shield-lock", label: "Security" },
   ];
 
-  // Handle General Form
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('eventoraUser')));
+
+  const [formData, setFormData] = useState({
+    fullName: user.fullName,
+    email: user.email,
+    phone: user.phone,
+  });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
-  };
+  }
 
-  // Save General Information
   const handleSaveProfile = (e) => {
     e.preventDefault();
 
     const updatedUser = {
-      ...user,
-      ...formData,
-    };
-
+      ...user, ...formData
+    }
     localStorage.setItem("eventoraUser", JSON.stringify(updatedUser));
     setUser(updatedUser);
+    toast.success("Profile updated successfully!");
+  }
 
-    setMessage("Profile updated successfully!");
-    setMessageType("success");
-  };
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // Handle Password Inputs
+  const [passwordData, setPasswordData] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  });
+
   const handlePasswordChange = (e) => {
     setPasswordData({
       ...passwordData,
       [e.target.name]: e.target.value,
     });
-  };
+  }
 
-  // Change Password
   const handleChangePassword = (e) => {
     e.preventDefault();
 
-    setMessage("");
-    setMessageType("");
-
-    if (
-      !passwordData.currentPassword ||
-      !passwordData.newPassword ||
-      !passwordData.confirmPassword
-    ) {
-      setMessage("Please fill in all password fields.");
-      setMessageType("error");
+    if (!passwordData.currentPassword || !passwordData.newPassword || !passwordData.confirmPassword) {
+      toast.error('Please fill in all password fields.');
       return;
     }
 
-    if (passwordData.currentPassword !== user?.password) {
-      setMessage("Current password is incorrect.");
-      setMessageType("error");
+    if (passwordData.currentPassword !== user.password) {
+      toast.error('Current password is incorrect.');
       return;
     }
 
-    if (passwordData.newPassword.length < 8) {
-      setMessage("New password must contain at least 8 characters.");
-      setMessageType("error");
+    if (passwordData.newPassword.length < 6) {
+      toast.error('New Password must contain at least 6 characters.');
       return;
     }
 
     if (passwordData.newPassword === passwordData.currentPassword) {
-      setMessage("New password must be different from current password.");
-      setMessageType("error");
+      toast.error('New password must be different from current password.');
       return;
     }
 
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      setMessage("New password and confirm password do not match.");
-      setMessageType("error");
+      toast.error('New password and confirm password do not match.');
       return;
     }
 
@@ -111,39 +89,38 @@ const Settings = () => {
       ...user,
       password: passwordData.newPassword,
       confirmPassword: passwordData.newPassword,
-    };
+    }
 
-    localStorage.setItem("eventoraUser", JSON.stringify(updatedUser));
+    localStorage.setItem('eventoraUser', JSON.stringify(updatedUser));
     setUser(updatedUser);
 
     setPasswordData({
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: "",
+      currentPassword: '',
+      newPassword: '',
+      confirmPassword: '',
     });
 
     setShowPasswordForm(false);
-    setMessage("Password changed successfully!");
-    setMessageType("success");
-  };
+    toast.success('Password changed successfully!');
+  }
 
   return (
     <div className="settings-page">
       {" "}
       <main className="settings-main">
-        {/* Page Header */}
+        {/* Page Header */}{" "}
         <div className="settings-header">
+          {" "}
           <div>
-            <span className="settings-eyebrow">PERSONALIZATION</span>
-            <h2>Account Settings</h2>
-            <p>Manage your account information and security.</p>
+            {" "}
+            <span className="settings-eyebrow">PERSONALIZATION</span>{" "}
+            <h2>Account Settings</h2>{" "}
+            <p>Manage your account information and security.</p>{" "}
           </div>
-
           <div className="settings-header-icon">
             <i className="bi bi-gear-wide-connected"></i>
           </div>
         </div>
-
         {/* Settings Layout */}
         <div className="settings-layout">
           {/* Sidebar */}
@@ -161,7 +138,6 @@ const Settings = () => {
                 }`}
                 onClick={() => {
                   setActiveTab(item.id);
-                  setMessage("");
                   setShowPasswordForm(false);
                 }}
               >
@@ -177,7 +153,12 @@ const Settings = () => {
               </div>
               <h4>Need Help?</h4>
               <p>Have questions about your account settings?</p>
-              <button type="button">Contact Support</button>
+              <button
+                type="button"
+                onClick={() => navigate("/user-dashboard/feedback")}
+              >
+                Contact Support
+              </button>
             </div>
           </div>
 
@@ -195,12 +176,11 @@ const Settings = () => {
                 </div>
 
                 <div className="settings-profile-preview">
-                  <div className="settings-avatar">
-                    {formData.fullName.charAt(0).toUpperCase() || "U"}
+                  <div className="settings-avatar">{formData.fullName.charAt(0).toUpperCase() || 'U'}
                   </div>
 
                   <div>
-                    <h4>{formData.fullName || "Eventora User"}</h4>
+                    <h4>{formData.fullName || 'Eventora User'}</h4>
                     <span>Eventora User</span>
                   </div>
                 </div>
@@ -253,19 +233,6 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {message && activeTab === "general" && (
-                    <div className={`settings-message ${messageType}`}>
-                      <i
-                        className={`bi ${
-                          messageType === "success"
-                            ? "bi-check-circle-fill"
-                            : "bi-exclamation-circle-fill"
-                        }`}
-                      ></i>
-                      {message}
-                    </div>
-                  )}
-
                   <div className="settings-form-actions">
                     <button type="submit" className="settings-save-btn">
                       <i className="bi bi-check2-circle"></i>
@@ -317,14 +284,12 @@ const Settings = () => {
                     onClick={() => {
                       setShowPasswordForm(!showPasswordForm);
                       setPasswordData({
-                        currentPassword: "",
-                        newPassword: "",
-                        confirmPassword: "",
+                        currentPassword: '',
+                        newPassword: '',
+                        confirmPassword: '',
                       });
-                      setMessage("");
                     }}
-                  >
-                    {showPasswordForm ? "Cancel" : "Change"}
+                  >{showPasswordForm ? "Cancel" : "Change"}
                   </button>
                 </div>
 
@@ -353,16 +318,13 @@ const Settings = () => {
                             value={passwordData.currentPassword}
                             onChange={handlePasswordChange}
                             placeholder="Enter current password"
-                            required
                           />
 
                           <i
                             className={`bi ${
                               showCurrentPassword ? "bi-eye-slash" : "bi-eye"
                             } password-eye`}
-                            onClick={() =>
-                              setShowCurrentPassword(!showCurrentPassword)
-                            }
+                            onClick={() => setShowCurrentPassword(!showCurrentPassword)}                       
                           ></i>
                         </div>
                       </div>
@@ -379,8 +341,7 @@ const Settings = () => {
                             name="newPassword"
                             value={passwordData.newPassword}
                             onChange={handlePasswordChange}
-                            placeholder="Enter new password"
-                            required
+                            placeholder="Enter new password"                            
                           />
 
                           <i
@@ -405,7 +366,6 @@ const Settings = () => {
                             value={passwordData.confirmPassword}
                             onChange={handlePasswordChange}
                             placeholder="Confirm new password"
-                            required
                           />
 
                           <i
@@ -421,21 +381,8 @@ const Settings = () => {
 
                       <div className="password-hint">
                         <i className="bi bi-info-circle"></i>
-                        Your new password must contain at least 8 characters.
+                        Your new password must contain at least 6 characters.
                       </div>
-
-                      {message && activeTab === "security" && (
-                        <div className={`settings-message ${messageType}`}>
-                          <i
-                            className={`bi ${
-                              messageType === "success"
-                                ? "bi-check-circle-fill"
-                                : "bi-exclamation-circle-fill"
-                            }`}
-                          ></i>
-                          {message}
-                        </div>
-                      )}
 
                       <div className="password-form-actions">
                         <button
@@ -443,7 +390,11 @@ const Settings = () => {
                           className="password-cancel-btn"
                           onClick={() => {
                             setShowPasswordForm(false);
-                            setMessage("");
+                            setPasswordData({
+                              currentPassword: '',
+                              newPassword: '',
+                              confirmPassword: '',
+                            });
                           }}
                         >
                           Cancel
