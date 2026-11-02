@@ -586,9 +586,9 @@
 
 .dashboard-bottom-grid {
     display: grid;
-    grid-template-columns: 0.6fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 0px;
 }
 
 .dashboard-upcoming-section,

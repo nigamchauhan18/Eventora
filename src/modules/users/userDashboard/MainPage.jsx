@@ -133,12 +133,13 @@ const MainPage = () => {
   ];
 
   const categories = [
-    { name: "Technology", icon: "bi-cpu", color: "purple" },
     { name: "Music", icon: "bi-music-note-beamed", color: "pink" },
+    { name: "Technology", icon: "bi-cpu", color: "purple" },
     { name: "Business", icon: "bi-briefcase", color: "orange" },
-    { name: "Workshops", icon: "bi-easel", color: "green" },
-    { name: "Sports", icon: "bi-trophy", color: "blue" },
-    { name: "Celebrations", icon: "bi-balloon-heart", color: "pink" },
+    { name: "Art & Culture", icon: "bi-palette", color: "green" },
+    { name: "Wedding", icon: "bi-heart", color: "pink" },
+    { name: "Food & Drink", icon: "bi-cup-hot", color: "blue" },
+    { name: "Health & Fitness", icon: "bi-heart-pulse", color: "green" },
   ];
 
   return (
@@ -365,7 +366,7 @@ const MainPage = () => {
           </div>
         </div>
 
-        {/* <div className="dashboard-categories-section">
+        <div className="dashboard-categories-section">
           <div className="dashboard-section-heading">
             <div>
               <span className="dashboard-section-label">
@@ -391,27 +392,30 @@ const MainPage = () => {
               </Link>
             ))}
           </div>
-        </div> */}
+        </div>
+      </section>
 
-        <div className="dashboard-categories-section">
-          <div className="dashboard-section-heading">
+      <section className="eventora-category-section">
+        <div className="eventora-category-container">
+          <div className="eventora-category-header">
             <div>
-              <span className="dashboard-section-label">
-                FIND YOUR INTEREST
+              <span className="eventora-section-label">
+                DISCOVER YOUR INTERESTS
               </span>
-              <h2>Events Categories</h2>
-              <p>Explore events based on their categories.</p>
+              <h2>Explore Event Categories</h2>
+              <p>
+                Find exciting experiences and discover events that match your
+                interests.
+              </p>
             </div>
-
             <Link
               to="/user-dashboard/explore-events"
-              className="dashboard-view-all"
+              className="eventora-explore-all-btn"
             >
-              Explore All
-              <i className="bi bi-arrow-right"></i>
+              Explore All Events
+              <i className="bi bi-arrow-up-right"></i>
             </Link>
           </div>
-
           <EventsCategories />
         </div>
       </section>

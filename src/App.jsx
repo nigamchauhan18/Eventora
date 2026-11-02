@@ -69,18 +69,19 @@ function App() {
         <Route path="admin-forgot-password" element={<AdminForgotPassword />}></Route>
         <Route path="user-dashboard" element={<LandingPage />}>
           <Route path="" element={<MainPage />}></Route>
-          <Route path="explore-events" element={<ExploreEvents />}></Route>
-          <Route path="explore-events/event-details/:id" element={<Event />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
           <Route path="registrations" element={<Registrations />}></Route>
           <Route path="my-bookings" element={<MyBookings />}></Route>
           <Route path="my-tickets" element={<MyTickets />}></Route>
+          
+          <Route path="explore-events" element={<ExploreEvents />}></Route>
+          <Route path="explore-events/event-details/:id" element={<Event />}></Route>
           <Route path="gallery" element={<Gallery />}></Route>
           <Route path="wishlist" element={<Wishlist />}></Route>
           <Route path="feedback" element={<Feedbacks />}></Route>
-          <Route path="about" element={<About />}></Route>
           <Route path="my-profile" element={<MyProfile />}></Route>
           <Route path="settings" element={<Settings />}></Route>
+          <Route path="about" element={<About />}></Route>
         </Route>
         <Route path="admin-dashboard" element={<AdminLanding />}>
           <Route path="" element={<AdminMain />}></Route>
