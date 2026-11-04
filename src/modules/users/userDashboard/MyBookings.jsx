@@ -30,29 +30,58 @@ const MyBookings = () => {
 
   return (
     <main className="my-bookings-page">
-      {/* Page Header */}
-      <section className="my-bookings-banner">
-        <div className="my-bookings-banner-content">
-          <div className="my-bookings-eyebrow">
-            <i className="bi bi-stars"></i>
-            YOUR EVENTORA ACTIVITY
-          </div>
+      {/* My Bookings Hero */}
+      <section className="bookings-hero">
+        <div className="bookings-hero-content">
+          <span className="bookings-eyebrow">
+            <i className="bi bi-ticket-perforated-fill"></i>
+            YOUR EVENTORA EXPERIENCE
+          </span>
 
           <h1>
-            My <span>Bookings</span>
+            Every Booking, <span>Every Memory.</span>
           </h1>
 
           <p>
-            All your event experiences, reservations, and tickets in one place.
+            Your event experiences, reservations, and tickets together in one
+            place. Keep track of every moment you've planned with Eventora.
           </p>
+
+          {/* Hero Statistics */}
+          <div className="bookings-hero-stats">
+            <div className="bookings-stat-icon">
+              <i className="bi bi-calendar2-check-fill"></i>
+            </div>
+
+            <div>
+              <strong>{totalBookings}</strong>
+
+              <span>
+                {totalBookings === 1 ? "Total Booking" : "Total Bookings"}
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div className="booking-banner-icon">
-          <i className="bi bi-ticket-perforated"></i>
-        </div>
+        {/* Hero Decoration */}
+        <div className="bookings-hero-decoration">
+          <div className="bookings-ticket-circle">
+            <i className="bi bi-ticket-perforated-fill"></i>
+          </div>
 
-        <div className="booking-banner-shape shape-one"></div>
-        <div className="booking-banner-shape shape-two"></div>
+          <div className="bookings-floating-card">
+            <i className="bi bi-stars"></i>
+
+            <div>
+              <strong>Memories Await</strong>
+              <span>Your next experience starts here</span>
+            </div>
+          </div>
+
+          <div className="bookings-decoration-dot dot-one"></div>
+          <div className="bookings-decoration-dot dot-two"></div>
+          <div className="bookings-decoration-dot dot-three"></div>
+        </div>
       </section>
 
       {/* Booking Statistics */}
@@ -140,7 +169,10 @@ const MyBookings = () => {
               events and reserve your tickets.
             </p>
 
-            <a href="/user-dashboard/explore-events" className="explore-bookings-btn">
+            <a
+              href="/user-dashboard/explore-events"
+              className="explore-bookings-btn"
+            >
               Explore Events
               <i className="bi bi-arrow-right"></i>
             </a>

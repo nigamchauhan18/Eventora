@@ -89,6 +89,7 @@ const Wishlist = () => {
           <div className="wishlist-decoration-dot dot-three"></div>
         </div>
       </section>
+      
       <section className="wishlist-content">
         <div className="wishlist-section-heading">
           <div>

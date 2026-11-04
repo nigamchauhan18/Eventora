@@ -29,11 +29,6 @@ function Sidebar() {
           path: "/user-dashboard/calendar",
         },
         {
-          name: "Registration",
-          icon: "bi-clipboard-check",
-          path: "/user-dashboard/registrations",
-        },
-        {
           name: "My Bookings",
           icon: "bi-calendar-check",
           path: "/user-dashboard/my-bookings",

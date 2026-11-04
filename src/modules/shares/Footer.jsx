@@ -47,7 +47,7 @@ function Footer() {
 
             <ul className="eventora-footer-links">
               <li>
-                <Link to="/user-dashboard">Home</Link>
+                <Link to="/user-dashboard">Dashboard</Link>
               </li>
               <li>
                 <Link to="/user-dashboard/explore-events">Explore Events</Link>
@@ -70,9 +70,6 @@ function Footer() {
 
             <ul className="eventora-footer-links">
               <li>
-                <Link to="/user-dashboard">Dashboard</Link>
-              </li>
-              <li>
                 <Link to="/user-dashboard/my-bookings">My Bookings</Link>
               </li>
               <li>
@@ -80,9 +77,6 @@ function Footer() {
               </li>
               <li>
                 <Link to="/user-dashboard/wishlist">Wishlist</Link>
-              </li>
-              <li>
-                <Link to="/user-dashboard/registrations">Registrations</Link>
               </li>
             </ul>
           </div>

@@ -20,7 +20,6 @@ import LandingPage from "./modules/users/userDashboard/LandingPage";
 import MainPage from "./modules/users/userDashboard/MainPage";
 import ExploreEvents from "./modules/users/userDashboard/ExploreEvents";
 import Calendar from "./modules/users/userDashboard/Calendar";
-import Registrations from "./modules/users/userDashboard/Registrations";
 import MyBookings from "./modules/users/userDashboard/MyBookings";
 import MyTickets from "./modules/users/userDashboard/MyTickets";
 import Gallery from "./modules/users/userDashboard/Gallery";
@@ -70,7 +69,6 @@ function App() {
         <Route path="user-dashboard" element={<LandingPage />}>
           <Route path="" element={<MainPage />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
-          <Route path="registrations" element={<Registrations />}></Route>
           <Route path="my-bookings" element={<MyBookings />}></Route>
           <Route path="my-tickets" element={<MyTickets />}></Route>
           

@@ -8,11 +8,7 @@ import "../../../assets/BookingModal.css";
 const Event = () => {
   const { id } = useParams();
   const [eventDetails, setEventDetails] = useState({});
-  console.log(eventDetails);
-
   const [showBookingModal, setShowBookingModal] = useState(false);
-
-  const ticketTypes = eventDetails.ticketTypes || [];
 
   const [bookingData, setBookingData] = useState({
     fullName: "",
@@ -22,23 +18,21 @@ const Event = () => {
     ticketType: "",
   });
 
-  const handleBookingChange = (e) => {
-    const { name, value } = e.target;
-
-    setBookingData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleBookingChanage = (e) => {
+    setBookingData({
+      ...bookingData,
+      [e.target.name]: e.target.value,
+    });
   };
+
+  const ticketTypes = eventDetails.ticketTypes || [];
 
   const selectedTicket = ticketTypes.find(
     (ticket) => ticket.name === bookingData.ticketType,
   );
-
   const pricePerTicket = Number(
     selectedTicket?.price ?? eventDetails.price ?? 0,
   );
-
   const totalPrice = pricePerTicket * Number(bookingData.tickets || 0);
 
   const handleBookingSubmit = (e) => {
@@ -57,35 +51,24 @@ const Event = () => {
       eventTime: eventDetails.time,
       eventLocation: eventDetails.location,
       venue: eventDetails.venue,
-
       fullName: bookingData.fullName,
       email: bookingData.email,
       phone: bookingData.phone,
-
       ticketType: selectedTicket?.name || "General Admission",
       tickets: Number(bookingData.tickets),
-
       pricePerTicket,
       totalPrice,
-
       bookingDate: new Date().toISOString(),
       bookingStatus: "Pending",
     };
 
-    // Get existing bookings
     const existingBookings =
       JSON.parse(localStorage.getItem("eventoraBookings")) || [];
-
-    // Add new booking
     existingBookings.push(booking);
-
-    // Save bookings
     localStorage.setItem("eventoraBookings", JSON.stringify(existingBookings));
 
-    // Success notification
     toast.success("Your booking has been confirmed!");
 
-    // Reset form
     setBookingData({
       fullName: "",
       email: "",
@@ -93,8 +76,6 @@ const Event = () => {
       tickets: 1,
       ticketType: ticketTypes[0]?.name || "",
     });
-
-    // Close modal
     setShowBookingModal(false);
   };
 
@@ -104,6 +85,7 @@ const Event = () => {
       setEventDetails(event);
     });
   };
+
   useEffect(() => {
     eventAPI();
   }, [id]);
@@ -443,14 +425,12 @@ const Event = () => {
         </div>
       </div>
 
-      {/* Booking Registration Modal */}
       {showBookingModal && (
         <div
           className="booking-modal-overlay"
           onClick={() => setShowBookingModal(false)}
         >
           <div className="booking-modal" onClick={(e) => e.stopPropagation()}>
-            {/* Modal Header */}
             <div className="booking-modal-header">
               <div>
                 <span className="booking-eyebrow">EVENTORA BOOKING</span>
@@ -469,7 +449,6 @@ const Event = () => {
               </button>
             </div>
 
-            {/* Selected Event Details */}
             <div className="booking-event-info">
               <div className="booking-event-icon">
                 <i className="bi bi-calendar-event"></i>
@@ -495,14 +474,12 @@ const Event = () => {
               </div>
             </div>
 
-            {/* Registration Form */}
             <form onSubmit={handleBookingSubmit}>
               <h4 className="booking-section-title">
                 <i className="bi bi-person-circle"></i>
                 Personal Information
               </h4>
 
-              {/* Full Name */}
               <div className="booking-form-group">
                 <label>Full Name</label>
 
@@ -511,12 +488,11 @@ const Event = () => {
                   name="fullName"
                   placeholder="Enter your full name"
                   value={bookingData.fullName}
-                  onChange={handleBookingChange}
+                  onChange={handleBookingChanage}
                   required
                 />
               </div>
 
-              {/* Email and Phone */}
               <div className="booking-form-row">
                 <div className="booking-form-group">
                   <label>Email Address</label>
@@ -526,7 +502,7 @@ const Event = () => {
                     name="email"
                     placeholder="Enter your email"
                     value={bookingData.email}
-                    onChange={handleBookingChange}
+                    onChange={handleBookingChanage}
                     required
                   />
                 </div>
@@ -539,7 +515,7 @@ const Event = () => {
                     name="phone"
                     placeholder="10-digit phone number"
                     value={bookingData.phone}
-                    onChange={handleBookingChange}
+                    onChange={handleBookingChanage}
                     pattern="[0-9]{10}"
                     maxLength="10"
                     required
@@ -547,13 +523,11 @@ const Event = () => {
                 </div>
               </div>
 
-              {/* Ticket Information */}
               <h4 className="booking-section-title">
                 <i className="bi bi-ticket-perforated"></i>
                 Ticket Information
               </h4>
 
-              {/* Ticket Type Selection */}
               <div className="booking-form-group">
                 <label htmlFor="ticketType">Select Ticket Type</label>
 
@@ -561,7 +535,7 @@ const Event = () => {
                   id="ticketType"
                   name="ticketType"
                   value={bookingData.ticketType}
-                  onChange={handleBookingChange}
+                  onChange={handleBookingChanage}
                   required
                 >
                   {ticketTypes.map((ticket, index) => (
@@ -581,12 +555,11 @@ const Event = () => {
                   min="1"
                   max={Math.max(1, Number(eventDetails.availableTickets) || 1)}
                   value={bookingData.tickets}
-                  onChange={handleBookingChange}
+                  onChange={handleBookingChanage}
                   required
                 />
               </div>
 
-              {/* Price Summary */}
               <div className="booking-price-box">
                 <div>
                   <span>Ticket Type</span>
@@ -609,7 +582,6 @@ const Event = () => {
                 </div>
               </div>
 
-              {/* Confirm Booking */}
               <button type="submit" className="booking-confirm-btn">
                 Confirm Booking
                 <i className="bi bi-arrow-right"></i>
