@@ -1,0 +1,349 @@
+/* =========================================
+   BOOKING HISTORY CARD
+========================================= */
+
+.booking-history-card {
+    position: relative;
+    width: 100%;
+    padding: 25px 28px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    border: 1px solid #eeeaf7;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgba(45, 30, 90, 0.045);
+    transition: all 0.3s ease;
+}
+
+.booking-history-card:hover {
+    transform: translateY(-4px);
+    border-color: #d9cdfa;
+    box-shadow: 0 12px 30px rgba(85, 58, 155, 0.10);
+}
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.booking-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #f0edf6;
+}
+
+.booking-id {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #7952e8;
+    background: #f2edff;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.booking-history-header h3 {
+    margin: 12px 0 9px;
+    color: #302747;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.booking-date {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #918ba2;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.booking-date i {
+    color: #7952e8;
+    font-size: 14px;
+}
+
+/* =========================================
+   BOOKING STATUS
+========================================= */
+
+.booking-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.booking-status i {
+    font-size: 7px;
+}
+
+/* Pending */
+
+.booking-status.pending {
+    color: #b7791f;
+    background: #fff5df;
+    border: 1px solid #f8e6bd;
+}
+
+/* Confirmed */
+
+.booking-status.confirmed {
+    color: #16834a;
+    background: #e8f8ef;
+    border: 1px solid #c9efd9;
+}
+
+/* Cancelled */
+
+.booking-status.cancelled {
+    color: #d33b4b;
+    background: #fff0f1;
+    border: 1px solid #f8d4d8;
+}
+
+/* =========================================
+   EVENT DETAILS
+========================================= */
+
+.booking-history-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 20px;
+    padding: 25px 0;
+}
+
+.booking-history-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+}
+
+.booking-history-item>i {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7952e8;
+    background: #f2edff;
+    border-radius: 12px;
+    font-size: 19px;
+    transition: all 0.3s ease;
+}
+
+.booking-history-item:hover>i {
+    color: #ffffff;
+    background: #7952e8;
+    transform: scale(1.05);
+}
+
+.booking-history-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.booking-history-item span {
+    color: #9690a5;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.booking-history-item strong {
+    color: #39304d;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   CUSTOMER INFORMATION
+========================================= */
+
+.booking-customer-details {
+    padding: 20px;
+    background: #faf9fe;
+    border: 1px solid #f0edf8;
+    border-radius: 13px;
+}
+
+.booking-customer-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 17px;
+    color: #302747;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.booking-customer-heading i {
+    color: #7952e8;
+    font-size: 18px;
+}
+
+.booking-customer-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.booking-customer-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.booking-customer-info span {
+    color: #9690a5;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.booking-customer-info strong {
+    color: #39304d;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   BOOKING FOOTER
+========================================= */
+
+.booking-history-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    align-items: center;
+    gap: 20px;
+    margin-top: 22px;
+    padding: 20px 22px;
+    background: #f8f6ff;
+    border: 1px solid #eee8ff;
+    border-radius: 13px;
+}
+
+.booking-history-footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.booking-history-footer span {
+    color: #89839b;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.booking-history-footer strong {
+    color: #39304d;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.booking-history-footer .booking-total-price {
+    color: #7952e8;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - TABLET
+========================================= */
+
+@media (max-width: 992px) {
+    .booking-history-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 15px;
+    }
+
+    .booking-history-card {
+        padding: 23px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+    .booking-history-card {
+        padding: 17px;
+        border-radius: 14px;
+    }
+
+    .booking-history-header {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 17px;
+    }
+
+    .booking-history-header h3 {
+        font-size: 17px;
+    }
+
+    .booking-history-details {
+        grid-template-columns: 1fr;
+        gap: 19px;
+        padding: 20px 0;
+    }
+
+    .booking-history-item>i {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 17px;
+    }
+
+    .booking-customer-details {
+        padding: 16px;
+    }
+
+    .booking-customer-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .booking-history-footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 17px;
+        padding: 17px;
+    }
+
+    .booking-history-footer .booking-total-price {
+        font-size: 18px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+    .booking-history-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-history-header h3 {
+        font-size: 15px;
+    }
+
+    .booking-history-item strong,
+    .booking-customer-info strong {
+        font-size: 12px;
+    }
+}

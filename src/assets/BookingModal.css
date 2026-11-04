@@ -288,3 +288,52 @@
         padding: 13px;
     }
 }
+
+/* Ticket Type Dropdown */
+.booking-form-group select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #e2def0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #333044;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237952e8' viewBox='0 0 16 16'%3E%3Cpath d='M2 5l6 6 6-6' stroke='%237952e8' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+    padding-right: 42px;
+}
+
+/* Dropdown Focus */
+.booking-form-group select:focus {
+    border-color: #7952e8;
+    box-shadow: 0 0 0 4px rgba(121, 82, 232, 0.12);
+}
+
+/* Dropdown Hover */
+.booking-form-group select:hover {
+    border-color: #7952e8;
+}
+
+/* Dropdown Options */
+.booking-form-group select option {
+    padding: 12px;
+    background-color: #ffffff;
+    color: #333044;
+    font-size: 14px;
+}
+
+/* Disabled Dropdown */
+.booking-form-group select:disabled {
+    background-color: #f5f3fa;
+    cursor: not-allowed;
+    opacity: 0.7;
+}

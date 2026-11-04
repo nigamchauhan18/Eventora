@@ -8,19 +8,20 @@ import "../../../assets/BookingModal.css";
 const Event = () => {
   const { id } = useParams();
   const [eventDetails, setEventDetails] = useState({});
+  console.log(eventDetails);
 
-  // Booking modal state
   const [showBookingModal, setShowBookingModal] = useState(false);
 
-  // User booking form data
+  const ticketTypes = eventDetails.ticketTypes || [];
+
   const [bookingData, setBookingData] = useState({
     fullName: "",
     email: "",
     phone: "",
     tickets: 1,
+    ticketType: "",
   });
 
-  // Handle form inputs
   const handleBookingChange = (e) => {
     const { name, value } = e.target;
 
@@ -30,13 +31,23 @@ const Event = () => {
     }));
   };
 
-  // Calculate total price
-  const totalPrice =
-    Number(eventDetails.price || 0) * Number(bookingData.tickets || 0);
+  const selectedTicket = ticketTypes.find(
+    (ticket) => ticket.name === bookingData.ticketType,
+  );
 
-  // Submit booking
+  const pricePerTicket = Number(
+    selectedTicket?.price ?? eventDetails.price ?? 0,
+  );
+
+  const totalPrice = pricePerTicket * Number(bookingData.tickets || 0);
+
   const handleBookingSubmit = (e) => {
     e.preventDefault();
+
+    if (!selectedTicket && ticketTypes.length > 0) {
+      toast.error("Please select a ticket type.");
+      return;
+    }
 
     const booking = {
       bookingId: Date.now(),
@@ -50,13 +61,15 @@ const Event = () => {
       fullName: bookingData.fullName,
       email: bookingData.email,
       phone: bookingData.phone,
+
+      ticketType: selectedTicket?.name || "General Admission",
       tickets: Number(bookingData.tickets),
 
-      pricePerTicket: Number(eventDetails.price),
-      totalPrice: totalPrice,
+      pricePerTicket,
+      totalPrice,
 
       bookingDate: new Date().toISOString(),
-      bookingStatus: "Confirmed",
+      bookingStatus: "Pending",
     };
 
     // Get existing bookings
@@ -78,6 +91,7 @@ const Event = () => {
       email: "",
       phone: "",
       tickets: 1,
+      ticketType: ticketTypes[0]?.name || "",
     });
 
     // Close modal
@@ -126,7 +140,6 @@ const Event = () => {
   const organizer = eventDetails.organizer || {};
   const highlights = eventDetails.highlights || [];
   const facilities = eventDetails.facilities || [];
-  const ticketTypes = eventDetails.ticketTypes || [];
 
   return (
     <main className="event-details-page">
@@ -540,6 +553,25 @@ const Event = () => {
                 Ticket Information
               </h4>
 
+              {/* Ticket Type Selection */}
+              <div className="booking-form-group">
+                <label htmlFor="ticketType">Select Ticket Type</label>
+
+                <select
+                  id="ticketType"
+                  name="ticketType"
+                  value={bookingData.ticketType}
+                  onChange={handleBookingChange}
+                  required
+                >
+                  {ticketTypes.map((ticket, index) => (
+                    <option key={index} value={ticket.name}>
+                      {ticket.name} - ₹{formatPrice(ticket.price)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div className="booking-form-group">
                 <label>Number of Tickets</label>
 
@@ -557,8 +589,13 @@ const Event = () => {
               {/* Price Summary */}
               <div className="booking-price-box">
                 <div>
+                  <span>Ticket Type</span>
+                  <strong>{selectedTicket?.name || "Select a ticket"}</strong>
+                </div>
+
+                <div>
                   <span>Price Per Ticket</span>
-                  <strong>₹{formatPrice(eventDetails.price)}</strong>
+                  <strong>₹{formatPrice(pricePerTicket)}</strong>
                 </div>
 
                 <div>
