@@ -69,9 +69,9 @@ function App() {
         <Route path="user-dashboard" element={<LandingPage />}>
           <Route path="" element={<MainPage />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
-          <Route path="my-bookings" element={<MyBookings />}></Route>
           <Route path="my-tickets" element={<MyTickets />}></Route>
           
+          <Route path="my-bookings" element={<MyBookings />}></Route>
           <Route path="explore-events" element={<ExploreEvents />}></Route>
           <Route path="explore-events/event-details/:id" element={<Event />}></Route>
           <Route path="gallery" element={<Gallery />}></Route>

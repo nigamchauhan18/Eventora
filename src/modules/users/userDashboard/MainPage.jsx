@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../../assets/MainPage.css";
 import EventsCategories from "./EventsCategories";
+import BookingGraph from './BookingGraph';
 
 const MainPage = () => {
   const user = JSON.parse(localStorage.getItem("eventoraUser") || "null");
@@ -417,6 +418,13 @@ const MainPage = () => {
             </Link>
           </div>
           <EventsCategories />
+        </div>
+      </section>
+
+      {/* Booking Graph */}
+      <section className="eventora-category-section">
+        <div className="eventora-category-container">
+          <BookingGraph />
         </div>
       </section>
 

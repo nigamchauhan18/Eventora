@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.booking-graph-container {
+    width: 100%;
+    padding: 28px;
+    border: 1px solid #eee9f7;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(69, 47, 112, 0.06);
+    font-family: "DM Sans", sans-serif;
+}
+
+.booking-graph-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.booking-graph-label {
+    color: #9875e4;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.booking-graph-header h2 {
+    margin: 8px 0 5px;
+    color: #302743;
+    font-family: "Manrope", sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.booking-graph-header p {
+    margin: 0;
+    color: #928ba0;
+    font-size: 12px;
+}
+
+.booking-graph-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #f0eaff;
+    color: #7952e8;
+    font-size: 21px;
+}
+
+.booking-graph-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.booking-graph-summary>div {
+    padding: 14px;
+    border: 1px solid #f0edf6;
+    border-radius: 13px;
+    background: #fcfbff;
+}
+
+.booking-graph-summary span {
+    display: block;
+    margin-bottom: 7px;
+    color: #9690a2;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.booking-graph-summary h3 {
+    margin: 0;
+    color: #302743;
+    font-family: "Manrope", sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.confirmed-text {
+    color: #7952e8 !important;
+}
+
+.pending-text {
+    color: #e99a35 !important;
+}
+
+.cancelled-text {
+    color: #e76575 !important;
+}
+
+.booking-pie-chart {
+    width: 100%;
+    min-height: 300px;
+}
+
+.pie-total-number {
+    fill: #302743;
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.pie-total-label {
+    fill: #928ba0;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.booking-graph-empty {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.booking-graph-empty i {
+    margin-bottom: 15px;
+    color: #b59bea;
+    font-size: 48px;
+}
+
+.booking-graph-empty h3 {
+    margin: 0 0 8px;
+    color: #302743;
+    font-family: "Manrope", sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.booking-graph-empty p {
+    margin: 0;
+    color: #928ba0;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .booking-graph-container {
+        padding: 18px;
+    }
+
+    .booking-graph-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-graph-header h2 {
+        font-size: 20px;
+    }
+
+    .booking-pie-chart {
+        min-height: 270px;
+    }
+}
