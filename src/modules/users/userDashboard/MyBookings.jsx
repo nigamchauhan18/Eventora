@@ -28,6 +28,14 @@ const MyBookings = () => {
 
   const formatPrice = (price) => Number(price).toLocaleString("en-IN");
 
+  const handleCancelBooking = (bookingId) => {
+    const updatedBookings = bookings.map((booking) =>
+      booking.bookingId === bookingId ? { ...booking, bookingStatus: "Cancelled" } : booking
+  );
+  localStorage.setItem("eventoraBookings", JSON.stringify(updatedBookings));
+  setBookings(updatedBookings);
+};
+
   return (
     <main className="my-bookings-page">
       {/* My Bookings Hero */}
@@ -151,7 +159,7 @@ const MyBookings = () => {
         {bookings.length > 0 ? (
           <div className="my-bookings-list">
             {bookings.map((booking) => (
-              <BookingCard key={booking.bookingId} bookingDetails={booking} />
+              <BookingCard key={booking.bookingId} bookingDetails={booking} onCancel={handleCancelBooking}/>
             ))}
           </div>
         ) : (

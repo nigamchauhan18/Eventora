@@ -345,14 +345,6 @@
    BOOKING HISTORY SECTION
 ================================ */
 
-.booking-history-section {
-    padding: 35px;
-    background: #fff;
-    border: 1px solid #eeeaf5;
-    border-radius: 22px;
-    box-shadow: 0 5px 20px rgba(42, 30, 77, 0.035);
-}
-
 .booking-section-heading {
     display: flex;
     align-items: flex-end;
@@ -582,10 +574,6 @@
         margin: 25px 0;
     }
 
-    .booking-history-section {
-        padding: 25px;
-    }
-
     .booking-section-heading {
         align-items: flex-start;
         flex-direction: column;
@@ -661,8 +649,7 @@
     }
 
     .booking-history-section {
-        padding: 20px 15px;
-        border-radius: 18px;
+        padding: 15px 5px;
     }
 
     .booking-section-heading h2 {
