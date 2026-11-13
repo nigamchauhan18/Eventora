@@ -1,0 +1,532 @@
+import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
+import "../../../assets/Calendar.css";
+
+// Get local date in YYYY-MM-DD format
+const getDateKey = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
+const Calendar = () => {
+  const today = new Date();
+  const todayKey = getDateKey(today);
+
+  const [events, setEvents] = useState([]);
+
+  const [currentDate, setCurrentDate] = useState(
+    new Date(today.getFullYear(), today.getMonth(), 1),
+  );
+
+  const [selectedDate, setSelectedDate] = useState(todayKey);
+
+  // =================================
+  // FETCH EVENTS USING AXIOS
+  // =================================
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get("/data/events.json");
+        setEvents(response.data);
+      } catch(error) {
+        console.log(error);
+    }
+    }
+    fetchEvents();
+  }, []);
+
+  // =================================
+  // EVENT DATA
+  // =================================
+
+  const activeEvents = events.filter((event) => event.bookingOpen === true);
+
+  const upcomingEvents = events
+    .filter((event) => event.date >= todayKey)
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  const monthlyEvents = events.filter((event) => {
+    const eventDate = new Date(`${event.date}T00:00:00`);
+
+    return (
+      eventDate.getMonth() === currentDate.getMonth() &&
+      eventDate.getFullYear() === currentDate.getFullYear()
+    );
+  });
+
+  const selectedDateEvents = events.filter(
+    (event) => event.date === selectedDate,
+  );
+
+  // =================================
+  // CALENDAR DAYS
+  // =================================
+
+  const calendarDays = useMemo(() => {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const totalDays = new Date(year, month + 1, 0).getDate();
+
+    // Monday as the first day of the week
+    const startingDay = (firstDay + 6) % 7;
+
+    const days = [];
+
+    for (let i = 0; i < startingDay; i++) {
+      days.push(null);
+    }
+
+    for (let day = 1; day <= totalDays; day++) {
+      days.push(new Date(year, month, day));
+    }
+
+    return days;
+  }, [currentDate]);
+
+  // =================================
+  // GET EVENTS FOR A DATE
+  // =================================
+
+  const getEventsForDate = (date) => {
+    const dateKey = getDateKey(date);
+
+    return events.filter((event) => event.date === dateKey);
+  };
+
+  // =================================
+  // MONTH NAVIGATION
+  // =================================
+
+  const changeMonth = (direction) => {
+    setCurrentDate(
+      new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth() + direction,
+        1,
+      ),
+    );
+  };
+
+  const goToToday = () => {
+    setCurrentDate(new Date(today.getFullYear(), today.getMonth(), 1));
+
+    setSelectedDate(todayKey);
+  };
+
+  // =================================
+  // CATEGORY COLORS
+  // =================================
+
+  const getCategoryClass = (category) => {
+    const colors = {
+      Music: "music-event",
+      Technology: "technology-event",
+      "Art & Culture": "art-event",
+      Business: "business-event",
+      Wedding: "wedding-event",
+      "Food & Drink": "food-event",
+      "Health & Fitness": "fitness-event",
+    };
+
+    return colors[category] || "default-event";
+  };
+
+  // =================================
+  // FORMAT MONTH
+  // =================================
+
+  const monthName = currentDate.toLocaleDateString("en-IN", {
+    month: "long",
+    year: "numeric",
+  });
+  
+  // =================================
+  // MAIN UI
+  // =================================
+
+  return (
+    <main className="eventora-calendar-page">
+      {/* HERO SECTION */}
+
+      <section className="calendar-hero">
+        <div className="calendar-hero-content">
+          <span className="calendar-eyebrow">
+            <i className="bi bi-calendar-heart-fill"></i>
+            YOUR EVENT PLANNER
+          </span>
+
+          <h1>
+            Your Events, <span>One Calendar.</span>
+          </h1>
+
+          <p>
+            Discover every upcoming Eventora experience. Keep track of exciting
+            events, important dates, and unforgettable moments.
+          </p>
+
+          <div className="calendar-hero-info">
+            <i className="bi bi-calendar-check-fill"></i>
+            {events.length} Events Available
+          </div>
+        </div>
+
+        <div className="calendar-hero-decoration">
+          <div className="calendar-hero-icon">
+            <i className="bi bi-calendar2-heart-fill"></i>
+          </div>
+
+          <div className="calendar-hero-floating">
+            <i className="bi bi-stars"></i>
+            Plan your next memory
+          </div>
+        </div>
+      </section>
+
+      {/* SUMMARY CARDS */}
+
+      <section className="calendar-summary">
+        <div className="calendar-summary-card">
+          <div className="summary-icon purple-summary">
+            <i className="bi bi-calendar-event"></i>
+          </div>
+
+          <div>
+            <span>Total Events</span>
+            <h3>{events.length}</h3>
+          </div>
+        </div>
+
+        <div className="calendar-summary-card">
+          <div className="summary-icon green-summary">
+            <i className="bi bi-calendar-check"></i>
+          </div>
+
+          <div>
+            <span>Booking Open</span>
+            <h3>{activeEvents.length}</h3>
+          </div>
+        </div>
+
+        <div className="calendar-summary-card">
+          <div className="summary-icon orange-summary">
+            <i className="bi bi-calendar-month"></i>
+          </div>
+
+          <div>
+            <span>This Month</span>
+            <h3>{monthlyEvents.length}</h3>
+          </div>
+        </div>
+
+        <div className="calendar-summary-card">
+          <div className="summary-icon pink-summary">
+            <i className="bi bi-calendar2-week"></i>
+          </div>
+
+          <div>
+            <span>Upcoming Events</span>
+            <h3>{upcomingEvents.length}</h3>
+          </div>
+        </div>
+      </section>
+
+      {/* CALENDAR MAIN SECTION */}
+
+      <section className="calendar-main-section">
+        {/* LEFT CALENDAR */}
+
+        <div className="calendar-month-card">
+          <div className="calendar-card-header">
+            <div>
+              <span className="calendar-section-label">EVENT SCHEDULE</span>
+
+              <h2>{monthName}</h2>
+            </div>
+
+            <div className="calendar-navigation">
+              <button
+                type="button"
+                onClick={() => changeMonth(-1)}
+                aria-label="Previous month"
+              >
+                <i className="bi bi-chevron-left"></i>
+              </button>
+
+              <button
+                type="button"
+                className="calendar-today-btn"
+                onClick={goToToday}
+              >
+                Today
+              </button>
+
+              <button
+                type="button"
+                onClick={() => changeMonth(1)}
+                aria-label="Next month"
+              >
+                <i className="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          {/* WEEKDAYS */}
+
+          <div className="calendar-weekdays">
+            {["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"].map((day) => (
+              <div key={day}>{day}</div>
+            ))}
+          </div>
+
+          {/* CALENDAR GRID */}
+
+          <div className="calendar-grid">
+            {calendarDays.map((date, index) => {
+              if (!date) {
+                return (
+                  <div
+                    key={`empty-${index}`}
+                    className="calendar-day empty-day"
+                  ></div>
+                );
+              }
+
+              const dateKey = getDateKey(date);
+
+              const dayEvents = getEventsForDate(date);
+
+              const isToday = dateKey === todayKey;
+
+              const isSelected = dateKey === selectedDate;
+
+              return (
+                <button
+                  type="button"
+                  key={dateKey}
+                  className={`
+                    calendar-day
+                    ${isToday ? "today-day" : ""}
+                    ${isSelected ? "selected-day" : ""}
+                    ${dayEvents.length > 0 ? "has-events" : ""}
+                  `}
+                  onClick={() => setSelectedDate(dateKey)}
+                >
+                  <span className="calendar-day-number">{date.getDate()}</span>
+
+                  {dayEvents.length > 0 && (
+                    <div className="calendar-event-indicators">
+                      {dayEvents.slice(0, 4).map((event) => (
+                        <span
+                          key={event.id}
+                          className={`event-indicator ${getCategoryClass(
+                            event.category,
+                          )}`}
+                        ></span>
+                      ))}
+                    </div>
+                  )}
+
+                  {dayEvents.length > 0 && (
+                    <span className="calendar-event-count">
+                      {dayEvents.length}
+                      {dayEvents.length === 1 ? " Event" : " Events"}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* CATEGORY LEGEND */}
+
+          <div className="calendar-legend">
+            <div>
+              <span className="legend-dot music-event"></span>
+              Music
+            </div>
+
+            <div>
+              <span className="legend-dot technology-event"></span>
+              Technology
+            </div>
+
+            <div>
+              <span className="legend-dot business-event"></span>
+              Business
+            </div>
+
+            <div>
+              <span className="legend-dot art-event"></span>
+              Art & Culture
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SIDEBAR */}
+
+        <aside className="calendar-sidebar">
+          {/* SELECTED DATE */}
+
+          <div className="selected-date-card">
+            <div className="sidebar-card-heading">
+              <div>
+                <span className="calendar-section-label">YOUR SCHEDULE</span>
+
+                <h3>Selected Day</h3>
+              </div>
+
+              <div className="sidebar-calendar-icon">
+                <i className="bi bi-calendar2-day"></i>
+              </div>
+            </div>
+
+            <div className="selected-date-display">
+              <strong>{new Date(`${selectedDate}T00:00:00`).getDate()}</strong>
+
+              <div>
+                <span>
+                  {new Date(`${selectedDate}T00:00:00`).toLocaleDateString(
+                    "en-IN",
+                    { weekday: "long" },
+                  )}
+                </span>
+
+                <p>
+                  {new Date(`${selectedDate}T00:00:00`).toLocaleDateString(
+                    "en-IN",
+                    { month: "long", year: "numeric" },
+                  )}
+                </p>
+              </div>
+            </div>
+
+            {/* SELECTED DATE EVENTS */}
+
+            <div className="selected-events-list">
+              {selectedDateEvents.length > 0 ? (
+                selectedDateEvents.map((event) => (
+                  <div className="selected-event-item" key={event.id}>
+                    <div
+                      className={`selected-event-line ${getCategoryClass(
+                        event.category,
+                      )}`}
+                    ></div>
+
+                    <div className="selected-event-content">
+                      <span className="calendar-event-category">
+                        {event.category}
+                      </span>
+
+                      <h4>{event.title}</h4>
+
+                      <p>
+                        <i className="bi bi-clock"></i>
+                        {event.time}
+                        {event.endTime ? ` - ${event.endTime}` : ""}
+                      </p>
+
+                      <p>
+                        <i className="bi bi-geo-alt"></i>
+                        {event.location}
+                      </p>
+
+                      <p>
+                        <i className="bi bi-building"></i>
+                        {event.venue}
+                      </p>
+
+                      <strong className="calendar-event-price">
+                        ₹{Number(event.price).toLocaleString("en-IN")}
+                      </strong>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="calendar-empty-day">
+                  <i className="bi bi-calendar2-x"></i>
+
+                  <h4>No Events Scheduled</h4>
+
+                  <p>There are no events available on this date.</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* UPCOMING EVENTS */}
+
+          <div className="upcoming-events-card">
+            <div className="sidebar-card-heading">
+              <div>
+                <span className="calendar-section-label">DON'T MISS OUT</span>
+
+                <h3>Upcoming Events</h3>
+              </div>
+
+              <i className="bi bi-stars upcoming-heading-icon"></i>
+            </div>
+
+            <div className="upcoming-events-list">
+              {upcomingEvents.length > 0 ? (
+                upcomingEvents.slice(0, 5).map((event) => (
+                  <div className="upcoming-event-item" key={event.id}>
+                    <div className="upcoming-event-date">
+                      <strong>
+                        {new Date(`${event.date}T00:00:00`).getDate()}
+                      </strong>
+
+                      <span>
+                        {new Date(`${event.date}T00:00:00`).toLocaleDateString(
+                          "en-IN",
+                          { month: "short" },
+                        )}
+                      </span>
+                    </div>
+
+                    <div className="upcoming-event-info">
+                      <h4>{event.title}</h4>
+
+                      <p>
+                        <i className="bi bi-geo-alt"></i>
+                        {event.location}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="upcoming-view-btn"
+                      aria-label={`View ${event.title}`}
+                      onClick={() => {
+                        setSelectedDate(event.date);
+
+                        const [year, month] = event.date.split("-").map(Number);
+
+                        setCurrentDate(new Date(year, month - 1, 1));
+                      }}
+                    >
+                      <i className="bi bi-arrow-up-right"></i>
+                    </button>
+                  </div>
+                ))
+              ) : (
+                <div className="upcoming-empty">
+                  <i className="bi bi-calendar2-plus"></i>
+
+                  <p>No upcoming events available.</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  );
+};
+
+export default Calendar;
