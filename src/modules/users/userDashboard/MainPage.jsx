@@ -1,15 +1,26 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import "../../../assets/MainPage.css";
 import EventsCategories from "./EventsCategories";
-import BookingGraph from './BookingGraph';
+import BookingGraph from "./BookingGraph";
 
 const MainPage = () => {
-  const user = JSON.parse(localStorage.getItem("eventoraUser") || "null");
+  const [events, setEvents] = useState([]);
 
-  const userName =
-    user?.name ||
-    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
-    "Eventora User";
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('/data/events.json');
+      setEvents(response.data);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      setEvents([]);
+    } 
+  }
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   const stats = [
     {
@@ -153,7 +164,7 @@ const MainPage = () => {
           </span>
 
           <h1>
-            Hello, {userName.split(" ")[0]}!
+            Hello, Eventora!
             <br />
             <span>Ready for something amazing?</span>
           </h1>
@@ -224,6 +235,43 @@ const MainPage = () => {
             <i className="bi bi-three-dots dashboard-stat-menu"></i>
           </div>
         ))}
+      </section>
+
+      {/* Events Categories & Booking Overview */}
+      <section className="dashboard-overview-section">
+        <div className="row g-4">
+          {/* Events Categories */}
+          <div className="col-md-6">
+            <div className="dashboard-overview-card">
+              <div className="eventora-category-header">
+                <div>
+                  <span className="eventora-section-label">
+                    DISCOVER YOUR INTERESTS
+                  </span>
+
+                  <h2>Explore Event Categories</h2>
+                </div>
+
+                <Link
+                  to="/user-dashboard/explore-events"
+                  className="eventora-explore-all-btn"
+                >
+                  Explore All Events
+                  <i className="bi bi-arrow-up-right"></i>
+                </Link>
+              </div>
+
+              <EventsCategories />
+            </div>
+          </div>
+
+          {/* Booking Overview */}
+          <div className="col-md-6">
+            <div className="dashboard-overview-card">
+              <BookingGraph />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="dashboard-quick-section">
@@ -393,38 +441,6 @@ const MainPage = () => {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="eventora-category-section">
-        <div className="eventora-category-container">
-          <div className="eventora-category-header">
-            <div>
-              <span className="eventora-section-label">
-                DISCOVER YOUR INTERESTS
-              </span>
-              <h2>Explore Event Categories</h2>
-              <p>
-                Find exciting experiences and discover events that match your
-                interests.
-              </p>
-            </div>
-            <Link
-              to="/user-dashboard/explore-events"
-              className="eventora-explore-all-btn"
-            >
-              Explore All Events
-              <i className="bi bi-arrow-up-right"></i>
-            </Link>
-          </div>
-          <EventsCategories />
-        </div>
-      </section>
-
-      {/* Booking Graph */}
-      <section className="eventora-category-section">
-        <div className="eventora-category-container">
-          <BookingGraph />
         </div>
       </section>
 

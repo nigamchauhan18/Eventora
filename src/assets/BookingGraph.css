@@ -1,83 +1,102 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+/* =========================================
+   EVENTORA BOOKING GRAPH
+========================================= */
 
 .booking-graph-container {
     width: 100%;
-    padding: 28px;
-    border: 1px solid #eee9f7;
-    border-radius: 22px;
-    background: #fff;
-    box-shadow: 0 8px 28px rgba(69, 47, 112, 0.06);
-    font-family: "DM Sans", sans-serif;
+    min-width: 0;
+    padding: 0;
 }
+
+/* =========================================
+   HEADER
+========================================= */
 
 .booking-graph-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .booking-graph-label {
-    color: #9875e4;
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #7952e8;
     font-size: 10px;
     font-weight: 800;
-    letter-spacing: 1.8px;
+    letter-spacing: 1.5px;
 }
 
 .booking-graph-header h2 {
-    margin: 8px 0 5px;
-    color: #302743;
+    margin: 0 0 7px;
+    color: #242139;
     font-family: "Manrope", sans-serif;
-    font-size: 23px;
+    font-size: 21px;
     font-weight: 800;
 }
 
 .booking-graph-header p {
     margin: 0;
-    color: #928ba0;
+    color: #858198;
     font-size: 12px;
+    line-height: 1.6;
 }
 
 .booking-graph-icon {
-    width: 48px;
-    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 14px;
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 13px;
     background: #f0eaff;
     color: #7952e8;
-    font-size: 21px;
+    font-size: 20px;
 }
+
+/* =========================================
+   BOOKING SUMMARY
+========================================= */
 
 .booking-graph-summary {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .booking-graph-summary>div {
-    padding: 14px;
-    border: 1px solid #f0edf6;
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid #efecf6;
     border-radius: 13px;
     background: #fcfbff;
+    transition: all 0.3s ease;
+}
+
+.booking-graph-summary>div:hover {
+    border-color: #d9cbff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(121, 82, 232, 0.06);
 }
 
 .booking-graph-summary span {
     display: block;
-    margin-bottom: 7px;
-    color: #9690a2;
-    font-size: 10px;
+    margin-bottom: 6px;
+    color: #858198;
+    font-size: 11px;
     font-weight: 600;
 }
 
 .booking-graph-summary h3 {
     margin: 0;
-    color: #302743;
+    color: #242139;
     font-family: "Manrope", sans-serif;
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 800;
 }
 
@@ -86,75 +105,147 @@
 }
 
 .pending-text {
-    color: #e99a35 !important;
+    color: #f2a541 !important;
 }
 
 .cancelled-text {
     color: #e76575 !important;
 }
 
+/* =========================================
+   PIE CHART
+========================================= */
+
 .booking-pie-chart {
     width: 100%;
-    min-height: 300px;
+    min-width: 0;
+    height: 300px;
+    overflow: hidden;
 }
 
 .pie-total-number {
-    fill: #302743;
+    fill: #242139;
     font-family: "Manrope", sans-serif;
     font-size: 30px;
     font-weight: 800;
 }
 
 .pie-total-label {
-    fill: #928ba0;
+    fill: #858198;
     font-family: "DM Sans", sans-serif;
     font-size: 11px;
     font-weight: 600;
 }
 
+/* =========================================
+   EMPTY STATE
+========================================= */
+
 .booking-graph-empty {
-    min-height: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 280px;
+    padding: 20px;
     text-align: center;
 }
 
 .booking-graph-empty i {
-    margin-bottom: 15px;
-    color: #b59bea;
-    font-size: 48px;
+    margin-bottom: 13px;
+    color: #a58ae9;
+    font-size: 43px;
 }
 
 .booking-graph-empty h3 {
     margin: 0 0 8px;
-    color: #302743;
+    color: #242139;
     font-family: "Manrope", sans-serif;
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 800;
 }
 
 .booking-graph-empty p {
     margin: 0;
-    color: #928ba0;
+    color: #858198;
     font-size: 12px;
 }
 
-@media (max-width: 600px) {
-    .booking-graph-container {
-        padding: 18px;
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+    .booking-graph-header h2 {
+        font-size: 19px;
     }
 
     .booking-graph-summary {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
 
-    .booking-graph-header h2 {
-        font-size: 20px;
+    .booking-graph-summary>div {
+        padding: 13px;
+    }
+
+    .booking-graph-summary h3 {
+        font-size: 22px;
+    }
+}
+
+/* Small Tablet */
+
+@media (max-width: 767px) {
+    .booking-graph-header {
+        margin-bottom: 17px;
     }
 
     .booking-pie-chart {
-        min-height: 270px;
+        height: 280px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .booking-graph-header h2 {
+        font-size: 18px;
+    }
+
+    .booking-graph-header p {
+        font-size: 11px;
+    }
+
+    .booking-graph-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 18px;
+    }
+
+    .booking-graph-summary {
+        gap: 9px;
+    }
+
+    .booking-graph-summary>div {
+        padding: 12px;
+    }
+
+    .booking-graph-summary span {
+        font-size: 10px;
+    }
+
+    .booking-graph-summary h3 {
+        font-size: 21px;
+    }
+
+    .booking-pie-chart {
+        height: 260px;
+    }
+
+    .booking-graph-empty {
+        min-height: 230px;
     }
 }
