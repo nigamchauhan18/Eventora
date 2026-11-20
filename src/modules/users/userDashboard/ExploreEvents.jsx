@@ -21,7 +21,7 @@ const ExploreEvents = () => {
   const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
 
   const eventsAPI = () => {
-    axios.get("/data/events.json").then((response) => {
+    axios.get("http://localhost:8000/events").then((response) => {
       setEvents(response.data);
     });
   }

@@ -21,7 +21,7 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const eventsAPI = () => {
-    axios.get('/data/events.json').then((response) => {
+    axios.get('http://localhost:8000/events').then((response) => {
       setEvents(response.data.filter((e) => e.image));
     });
   }

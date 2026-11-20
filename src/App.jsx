@@ -33,6 +33,7 @@ import Event from "./modules/users/userDashboard/Event";
 import AdminLanding from "./modules/admin/adminDashboard/AdminLanding";
 import AdminMain from "./modules/admin/adminDashboard/AdminMain";
 import AdminEvents from "./modules/admin/adminDashboard/AdminEvents";
+import AddEvent from "./modules/admin/adminDashboard/AddEvent";
 import AdminCategories from "./modules/admin/adminDashboard/AdminCategories";
 import AdminUsers from "./modules/admin/adminDashboard/AdminUsers";
 import AdminRegistrations from "./modules/admin/adminDashboard/AdminRegistrations";
@@ -84,6 +85,7 @@ function App() {
         <Route path="admin-dashboard" element={<AdminLanding />}>
           <Route path="" element={<AdminMain />}></Route>
           <Route path="events" element={<AdminEvents />}></Route>
+          <Route path="events/add-event" element={<AddEvent />}></Route>
           <Route path="categories" element={<AdminCategories />}></Route>
           <Route path="users" element={<AdminUsers />}></Route>
           <Route path="registrations" element={<AdminRegistrations />}></Route>

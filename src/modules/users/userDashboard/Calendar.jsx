@@ -14,7 +14,7 @@ const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(todayKey);
 
   const fetchEvents = () => {
-    axios.get("/data/events.json").then((response) => {
+    axios.get("http://localhost:8000/events").then((response) => {
       setEvents(response.data);
     });
   };

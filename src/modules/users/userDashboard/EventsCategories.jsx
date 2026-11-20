@@ -19,7 +19,7 @@ const EventsCategories = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const eventsAPI = () => {
-    axios.get("/data/events.json").then((response) => {
+    axios.get("http://localhost:8000/events").then((response) => {
       setEvents(response.data);
       setAllEvents(response.data);
 

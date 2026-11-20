@@ -11,7 +11,7 @@ const MainPage = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('/data/events.json');
+      const response = await axios.get('http://localhost:8000/events');
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);

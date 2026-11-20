@@ -80,7 +80,7 @@ const Event = () => {
   };
 
   const eventAPI = () => {
-    axios.get("/data/events.json").then((response) => {
+    axios.get("http://localhost:8000/events").then((response) => {
       const event = response.data.find((e) => e.id == id);
       setEventDetails(event);
     });
