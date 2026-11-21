@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../../api/axiosInstance";
 import { toast } from "react-toastify";
 import "../../../assets/AddEvent.css";
 
@@ -126,7 +126,7 @@ const AddEvent = () => {
     };
 
     try {
-      axios.post("http://localhost:8000/events", eventData);
+      API.post("/events", eventData);
       toast.success("Event added successfully!");
       setFormData(initialFormData);
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
+import API from "../../../api/axiosInstance";
 import { toast } from "react-toastify";
 import "../../../assets/Event.css";
 import "../../../assets/BookingModal.css";
@@ -79,8 +79,8 @@ const Event = () => {
     setShowBookingModal(false);
   };
 
-  const eventAPI = () => {
-    axios.get("http://localhost:8000/events").then((response) => {
+  const eventAPI = async () => {
+    await API.get("/events").then((response) => {
       const event = response.data.find((e) => e.id == id);
       setEventDetails(event);
     });

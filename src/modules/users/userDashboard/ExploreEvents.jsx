@@ -20,8 +20,8 @@ const ExploreEvents = () => {
   const [activeCategory, setActiveCategory] = useState("All Events");
   const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
 
-  const eventsAPI = () => {
-    API.get("/events").then((response) => {
+  const eventsAPI = async () => {
+    await API.get("/events").then((response) => {
       setEvents(response.data);
     });
   }

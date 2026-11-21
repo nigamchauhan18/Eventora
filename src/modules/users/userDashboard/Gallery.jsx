@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "../../../assets/Gallery.css";
+import API from "../../../api/axiosInstance";
 
 const categories = [
   "All Moments",
@@ -20,8 +20,8 @@ const Gallery = () => {
   const [search, setSearch] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const eventsAPI = () => {
-    axios.get('http://localhost:8000/events').then((response) => {
+  const eventsAPI = async () => {
+    await API.get('/events').then((response) => {
       setEvents(response.data.filter((e) => e.image));
     });
   }

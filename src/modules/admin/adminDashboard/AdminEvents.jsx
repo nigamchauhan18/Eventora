@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../../../api/axiosInstance";
 import { toast } from "react-toastify";
 import "../../../assets/ManageEvents.css";
 
@@ -10,19 +10,48 @@ const AdminManageEvents = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [modalType, setModalType] = useState("");
 
-  const fetchEvents = () => {
-    axios.get("http://localhost:8000/events").then((response) => {
-      setEvents(response.data);
-    });
+  // const fetchEvents = async () => {
+  //   await API.get("/events").then((response) => {
+  //     setEvents(response.data);
+  //   });
+  // };
+
+  const fetchEvents = async () => {
+    try {
+      const response = await API.get("/events");
+      if (Array.isArray(response.data)) {
+        const validEvents = response.data.filter((event) =>
+          event && typeof event === "object" && !Array.isArray(event) && event.id !== undefined
+        );
+        setEvents(validEvents);
+      } else {
+        setEvents([]);
+        console.error("Invalid events response:", response.data);
+      }
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      setEvents([]);
+      toast.error("Failed to load events.");
+    }
   };
   useEffect(() => {
     fetchEvents();
   }, []);
 
-  const uniqueCategory = events.map((event) => event.category);
-  const categories = ["All", ...new Set(uniqueCategory)];
+  const categories = [
+    "All",
+    ...new Set(events
+      .filter((event) => event && typeof event === "object")
+      .map((event) => event.category)
+      .filter(Boolean)
+    ),
+  ];
 
   const filteredEvents = events.filter((event) => {
+    if (!event || typeof event !== "object") {
+      return false;
+    }
+
     const searchValue = search.toLowerCase();
     const matchesSearch =
       event.title?.toLowerCase().includes(searchValue) ||
@@ -32,11 +61,18 @@ const AdminManageEvents = () => {
     return matchesSearch && matchesCategory;
   });
 
+  // const today = new Date().toISOString().split("T")[0];
+  // const upcomingEvents = events.filter((event) => event.date >= today).length;
+  // const bookingOpenEvents = events.filter((event) => event.bookingOpen === true ).length;
+
   const today = new Date().toISOString().split("T")[0];
-  const upcomingEvents = events.filter((event) => event.date >= today).length;
-  const bookingOpenEvents = events.filter((event) =>
-    event.bookingOpen === true,
+  const upcomingEvents = events.filter((event) =>
+    event && typeof event === "object" && event.date && event.date >= today
   ).length;
+  const bookingOpenEvents = events.filter((event) =>
+    event && typeof event === "object" && event.bookingOpen === true
+  ).length;
+
   const totalCategories = categories.length - 1;
 
   const [formData, setFormData] = useState({
@@ -62,7 +98,7 @@ const AdminManageEvents = () => {
     shortDescription: "",
     description: "",
 
-    highlightsText: "",
+    highlights: "",
     facilitiesText: "",
     tagsText: "",
 
@@ -124,7 +160,7 @@ const AdminManageEvents = () => {
       shortDescription: event.shortDescription || "",
       description: event.description || "",
   
-      highlightsText: (event.highlights || []).join("\n"),
+      highlights: (event.highlights || []).join("\n"),
       facilitiesText: (event.facilities || []).join("\n"),
       tagsText: (event.tags || []).join(", "),
   
@@ -183,7 +219,7 @@ const AdminManageEvents = () => {
         shortDescription: formData.shortDescription,
         description: formData.description,
   
-        highlights: formData.highlightsText
+        highlights: formData.highlights
           .split("\n")
           .map((item) => item.trim())
           .filter(Boolean),
@@ -210,7 +246,7 @@ const AdminManageEvents = () => {
         cancellationPolicy: formData.cancellationPolicy,
       };
   
-      const response = axios.patch(`${"http://localhost:8000/events"}/${selectedEvent.id}`, updatedEvent);
+      const response = API.patch(`${"/events"}/${selectedEvent.id}`, updatedEvent);
   
       setEvents((prev) => prev.map((event) =>
           event.id === selectedEvent.id ? response.data : event
@@ -225,11 +261,11 @@ const AdminManageEvents = () => {
     }
   };
 
-  const deleteEvent = (event) => {
+  const deleteEvent = async (event) => {
     const confirmDelete = window.confirm(`Are you sure you want to delete "${event.title}"?`);
     if (!confirmDelete) return;
    
-    axios.delete(`http://localhost:8000/events/${event.id}`).then(() => {
+    await API.delete(`/events/${event.id}`).then(() => {
       toast.success("Event deleted successfully!");
       fetchEvents();
     });
@@ -1078,9 +1114,9 @@ const AdminManageEvents = () => {
                 <div className="admin-edit-field full">
                   <label>Event Highlights</label>
                   <textarea
-                    name="highlightsText"
+                    name="highlights"
                     rows="4"
-                    value={formData.highlightsText}
+                    value={formData.highlights}
                     onChange={handleChange}
                     placeholder={"Group workouts\nFitness demonstrations\nWellness activities"}
                   />

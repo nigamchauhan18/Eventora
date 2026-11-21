@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import axios from "axios";
+import API from "../../../api/axiosInstance";
 import "../../../assets/Calendar.css";
 
 const Calendar = () => {
@@ -13,8 +13,8 @@ const Calendar = () => {
   const todayKey = today.toLocaleDateString("en-CA");
   const [selectedDate, setSelectedDate] = useState(todayKey);
 
-  const fetchEvents = () => {
-    axios.get("http://localhost:8000/events").then((response) => {
+  const fetchEvents = async () => {
+    await API.get("/events").then((response) => {
       setEvents(response.data);
     });
   };

@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import "../../../assets/MainPage.css";
 import EventsCategories from "./EventsCategories";
 import BookingGraph from "./BookingGraph";
+import API from "../../../api/axiosInstance";
 
 const MainPage = () => {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/events');
+      const response = await API.get('/events');
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);

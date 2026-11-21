@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import {
   ResponsiveContainer,
@@ -10,7 +9,9 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+
 import "../../../assets/EventsCategories.css";
+import API from "../../../api/axiosInstance";
 
 const EventsCategories = () => {
   const [events, setEvents] = useState([]);
@@ -18,8 +19,8 @@ const EventsCategories = () => {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const eventsAPI = () => {
-    axios.get("http://localhost:8000/events").then((response) => {
+  const eventsAPI = async() => {
+    await API.get("/events").then((response) => {
       setEvents(response.data);
       setAllEvents(response.data);
 

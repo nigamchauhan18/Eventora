@@ -49,12 +49,16 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Live Music", "Festival", "DJ", "Entertainment"],
-      "highlightsText": ""
+      "tags": [
+        "Live Music",
+        "Festival",
+        "DJ",
+        "Entertainment"
+      ]
     },
     {
       "id": 2,
-      "title": "Future of Technology Summit",
+      "title": "Future of Technology Summitt",
       "category": "Technology",
       "date": "2026-11-20",
       "time": "10:00 AM",
@@ -81,7 +85,12 @@
         "Industry networking",
         "Innovation showcases"
       ],
-      "facilities": ["Wi-Fi", "Parking", "Lunch area", "Restrooms"],
+      "facilities": [
+        "Wi-Fi",
+        "Parking",
+        "Lunch area",
+        "Restrooms"
+      ],
       "ageLimit": "16+",
       "ticketTypes": [
         {
@@ -95,7 +104,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Technology", "AI", "Innovation", "Networking"]
+      "tags": [
+        "Technology",
+        "AI",
+        "Innovation",
+        "Networking"
+      ]
     },
     {
       "id": 3,
@@ -145,7 +159,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Art", "Painting", "Culture", "Exhibition"]
+      "tags": [
+        "Art",
+        "Painting",
+        "Culture",
+        "Exhibition"
+      ]
     },
     {
       "id": 4,
@@ -176,7 +195,12 @@
         "Networking sessions",
         "Business strategy workshops"
       ],
-      "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+      "facilities": [
+        "Wi-Fi",
+        "Parking",
+        "Refreshments",
+        "Conference seating"
+      ],
       "ageLimit": "18+",
       "ticketTypes": [
         {
@@ -190,7 +214,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Business", "Leadership", "Networking", "Entrepreneurship"]
+      "tags": [
+        "Business",
+        "Leadership",
+        "Networking",
+        "Entrepreneurship"
+      ]
     },
     {
       "id": 5,
@@ -240,7 +269,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Wedding", "Decoration", "Celebration", "Wedding Planning"]
+      "tags": [
+        "Wedding",
+        "Decoration",
+        "Celebration",
+        "Wedding Planning"
+      ]
     },
     {
       "id": 6,
@@ -271,7 +305,12 @@
         "Mentor networking",
         "Idea-sharing sessions"
       ],
-      "facilities": ["Wi-Fi", "Networking area", "Refreshments", "Seating"],
+      "facilities": [
+        "Wi-Fi",
+        "Networking area",
+        "Refreshments",
+        "Seating"
+      ],
       "ageLimit": "18+",
       "ticketTypes": [
         {
@@ -285,7 +324,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Startup", "Business", "Founders", "Networking"]
+      "tags": [
+        "Startup",
+        "Business",
+        "Founders",
+        "Networking"
+      ]
     },
     {
       "id": 7,
@@ -445,7 +489,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Photography", "Masterclass", "Creative Arts", "Camera"]
+      "tags": [
+        "Photography",
+        "Masterclass",
+        "Creative Arts",
+        "Camera"
+      ]
     },
     {
       "id": 10,
@@ -476,7 +525,12 @@
         "Marketing analytics",
         "Brand-building workshops"
       ],
-      "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+      "facilities": [
+        "Wi-Fi",
+        "Parking",
+        "Refreshments",
+        "Conference seating"
+      ],
       "ageLimit": "16+",
       "ticketTypes": [
         {
@@ -490,7 +544,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Digital Marketing", "SEO", "Social Media", "Business"]
+      "tags": [
+        "Digital Marketing",
+        "SEO",
+        "Social Media",
+        "Business"
+      ]
     },
     {
       "id": 11,
@@ -521,7 +580,12 @@
         "Rock performances",
         "Festival atmosphere"
       ],
-      "facilities": ["Food stalls", "Parking", "First aid", "Restrooms"],
+      "facilities": [
+        "Food stalls",
+        "Parking",
+        "First aid",
+        "Restrooms"
+      ],
       "ageLimit": "16+",
       "ticketTypes": [
         {
@@ -535,7 +599,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Indie Rock", "Concert", "Live Music", "Bands"]
+      "tags": [
+        "Indie Rock",
+        "Concert",
+        "Live Music",
+        "Bands"
+      ]
     },
     {
       "id": 12,
@@ -585,7 +654,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Cloud Computing", "DevOps", "Infrastructure", "Technology"]
+      "tags": [
+        "Cloud Computing",
+        "DevOps",
+        "Infrastructure",
+        "Technology"
+      ]
     },
     {
       "id": 13,
@@ -635,7 +709,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Dance", "Performing Arts", "Culture", "Live Show"]
+      "tags": [
+        "Dance",
+        "Performing Arts",
+        "Culture",
+        "Live Show"
+      ]
     },
     {
       "id": 14,
@@ -666,7 +745,12 @@
         "Growth strategies",
         "Networking opportunities"
       ],
-      "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+      "facilities": [
+        "Wi-Fi",
+        "Parking",
+        "Refreshments",
+        "Conference seating"
+      ],
       "ageLimit": "18+",
       "ticketTypes": [
         {
@@ -680,7 +764,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Entrepreneurship", "Startup", "Funding", "Business Growth"]
+      "tags": [
+        "Entrepreneurship",
+        "Startup",
+        "Funding",
+        "Business Growth"
+      ]
     },
     {
       "id": 15,
@@ -711,7 +800,12 @@
         "Dessert counters",
         "Cooking demonstrations"
       ],
-      "facilities": ["Seating areas", "Drinking water", "Parking", "Restrooms"],
+      "facilities": [
+        "Seating areas",
+        "Drinking water",
+        "Parking",
+        "Restrooms"
+      ],
       "ageLimit": "All ages",
       "ticketTypes": [
         {
@@ -725,7 +819,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Food Festival", "Street Food", "Cuisine", "Desserts"]
+      "tags": [
+        "Food Festival",
+        "Street Food",
+        "Cuisine",
+        "Desserts"
+      ]
     },
     {
       "id": 16,
@@ -775,7 +874,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["New Year", "DJ", "Nightlife", "Music Festival"]
+      "tags": [
+        "New Year",
+        "DJ",
+        "Nightlife",
+        "Music Festival"
+      ]
     },
     {
       "id": 17,
@@ -806,7 +910,12 @@
         "Project presentations",
         "Developer networking"
       ],
-      "facilities": ["Wi-Fi", "Power outlets", "Work tables", "Refreshments"],
+      "facilities": [
+        "Wi-Fi",
+        "Power outlets",
+        "Work tables",
+        "Refreshments"
+      ],
       "ageLimit": "16+",
       "ticketTypes": [
         {
@@ -820,7 +929,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Hackathon", "Web Development", "React", "Programming"]
+      "tags": [
+        "Hackathon",
+        "Web Development",
+        "React",
+        "Programming"
+      ]
     },
     {
       "id": 18,
@@ -870,7 +984,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Handicrafts", "Artisans", "Culture", "Shopping"]
+      "tags": [
+        "Handicrafts",
+        "Artisans",
+        "Culture",
+        "Shopping"
+      ]
     },
     {
       "id": 19,
@@ -901,7 +1020,12 @@
         "Financial planning sessions",
         "Industry networking"
       ],
-      "facilities": ["Wi-Fi", "Parking", "Refreshments", "Conference seating"],
+      "facilities": [
+        "Wi-Fi",
+        "Parking",
+        "Refreshments",
+        "Conference seating"
+      ],
       "ageLimit": "18+",
       "ticketTypes": [
         {
@@ -915,7 +1039,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Finance", "Investment Education", "Fintech", "Planning"]
+      "tags": [
+        "Finance",
+        "Investment Education",
+        "Fintech",
+        "Planning"
+      ]
     },
     {
       "id": 20,
@@ -965,7 +1094,12 @@
       ],
       "bookingOpen": true,
       "cancellationPolicy": "Refunds are subject to the event cancellation policy.",
-      "tags": ["Fitness", "Wellness", "Exercise", "Healthy Living"]
+      "tags": [
+        "Fitness",
+        "Wellness",
+        "Exercise",
+        "Healthy Living"
+      ]
     },
     {
       "title": "Grand Winter Music Festival",
