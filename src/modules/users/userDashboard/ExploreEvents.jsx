@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import API from "../../../api/axiosInstance";
 import "../../../assets/ExploreEvents.css";
 
 const categories = [
@@ -21,7 +21,7 @@ const ExploreEvents = () => {
   const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem('wishlist')) || []);
 
   const eventsAPI = () => {
-    axios.get("http://localhost:8000/events").then((response) => {
+    API.get("/events").then((response) => {
       setEvents(response.data);
     });
   }
